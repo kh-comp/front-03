@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+/*=================================================================================
+ * Search Box
+ =================================================================================*/
+.search-wrap { width: 100%; background: #f7f7f7; padding: 15px; border-radius: 8px; }
+.search-wrap .sch-box { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 16px; width: 100%; }
+.search-wrap .sch-box dl { display: flex; flex-direction: column; width: 100%; margin: 0; }
+.search-wrap .sch-box dt { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.search-wrap .sch-box dt::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 5px; margin-right: 5px; margin-bottom: 3px; background: #ccc; }
+.search-wrap .sch-box dd { width: 100%; }
+.search-wrap .sch-box input { width: 100%; height: 32px; padding: 0 10px; border: 1px solid #dcdcdc; border-radius: 4px; background: #fff; }
+.sch-box select { width: 100%; height: 32px; padding: 0 10px; border: 1px solid #dcdcdc; border-radius: 4px; background: url(../img/ico-select-m.png) calc(100% - 10px) 50% no-repeat #fff; }
+.tit-wrap .btn-right-input select { width: auto; min-width: 140px; padding: 10px 25px 10px 10px; }
+
+/*=================================================================================
+ * Button
+ =================================================================================*/
+
+ /* Top Btn */
+.btn-area {display: flex; justify-content: center; align-items: center; gap: 10px;}
+.btn-icon  { display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
+.btn-icon a {display: inline-flex; align-items: center; padding: 8px 15px 8px 15px; border-radius: 6px; background: #fff; border: 1px solid #01459F; color: #01459F; font-size: 0.875rem; font-weight: 600;}
+.btn-icon a:hover { background-color: #D9E0FF; }
+.btn-bg-icon a {display: inline-flex; align-items: center; padding: 8px 15px 8px 15px; border-radius: 6px; background: #01459F; color: #fff; font-size: 0.875rem; font-weight: 600;}
+.btn-bg-icon a:hover { background-color: #3A4886; }
+.btn-delete {display: inline-block; width: 20px; height: 20px; background: url('../img/Icon-Trash.png') no-repeat center center; margin-right: 11px;}
+.btn-modify {display: inline-block; width: 20px; height: 20px; background: url('../img/ico-edit.png') no-repeat center center; margin-right: 11px;}
+.btn-enroll {display: inline-block; width: 20px; height: 20px; background: url('../img/ico-check.png') no-repeat center center; margin-right: 11px;}
+.btn-excel {display: inline-block; width: 20px; height: 20px; background: url('../img/ico-excel.png') no-repeat center center; margin-right: 11px;} 
+.btn-list {display: inline-block; width: 20px; height: 20px; background: url('../img/icon-list.png') no-repeat center center; margin-right: 11px;}
+.btn-srch {display: inline-block; width: 20px; height: 20px; background: url('../img/ico-search.png') no-repeat center center; margin-right: 11px;}
+.btn-return {display: inline-block; border-radius: 6px; background: #fff; border: 1px solid #01459F;}
+.btn-return a {display: block; width: 36px; height: 36px; background: url('../img/ico-return.png') no-repeat center center;}
+.btn-return a:hover { background-color: #D9E0FF; border-radius: 6px;}
+
+ /* inner Btn */
+.btn-right-box a { display: inline-flex; align-items: center; padding: 8px 15px 8px 15px; border-radius: 6px; background: #30A1F2; color: #fff; font-size: 0.875rem; font-weight: 400; }
+.btn-right-box a:hover { background-color: #3a4886;}
+.btn-right-input  { display: flex; align-items: center; gap: 10px; }
+
+/*=================================================================================
+ * Tab
+ =================================================================================*/
+ .sub-tab-wrap {width:100%; flex:0 0 auto; padding-bottom: 10px;}
+ .sub-tab-wrap ul {display: flex; justify-content: flex-start;}
+ .sub-tab-wrap ul li {display:inline-block; border:1px solid #dcdcdc;text-align: center; margin-right: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; background: #e9edf8; height: 30px;}
+ .sub-tab-wrap ul li:first-child {border-left:1px solid #dcdcdc;}
+ .sub-tab-wrap ul li a {display: block; padding:6px 10px 5px 10px; min-width: 120px;}
+ .sub-tab-wrap ul li.on {background:url(../img/common/bg-tab.png)#3A4886 no-repeat 78% 50%; border: none;}
+ .sub-tab-wrap ul li.on a {color:#fff; padding:6px 5px 5px 5px;; font-weight: 500;}
+
+
+/*=================================================================================
+ * Table
+ =================================================================================*/
+ table {font-family: 'Pretendard'; font-weight:400;}
+ .table-wrap {width:100%;}
+
+ /*List style*/
+ .table-type01 {width:100%; border-top:2px solid #1fabf2; background-color:#fff;}
+ .table-type01 tr {min-height:20px;}
+ .table-type01 tr:hover {background-color:#e9f7ff;}
+ .table-type01 th {border-bottom:0px; border:1px solid #eaeaea; background-color:#F4F5FA; padding:4px 7px; font-weight:600;}
+ .table-type01 th:first-child {border-left:0;}
+ .table-type01 th:last-child {border-right:0;}
+ .table-type01 td {border:1px solid #eaeaea; padding:4px 7px; text-align:center; font-size:15px; height: 35px;}
+ .table-type01 td:first-child {border-left:0;}
+ .table-type01 td:last-child {border-right:0;}
+ 
+/*Write style*/
+.table-write {width: 100%; border-top: 1px solid #eaeaea; border-collapse: inherit; padding-bottom: 10px;}
+.table-write tbody th {padding: 5px 5px; font-weight: 400; background-color: #F4F5FA; border-bottom: 1px solid #E5E7EC; border-right: 1px solid #e8e8e8; height: 45px;}
+.table-write tbody td {padding: 5px 7px; border-bottom: 1px solid #eaeaea; font-weight: 400;}
+
+ /*Write style-other*/
+ .table-type02 { width:100%; border-top: 2px solid #1fabf2; border-collapse: inherit; }
+ .table-type02 tbody th:first-child {border-left:0;}
+ .table-type02 tbody td:last-child {border-right:0;}
+ .table-type02 tbody th { border-left:1px solid #e8e8e8; border-right:1px solid #e8e8e8; padding:4px 7px; font-weight: 500; background-color: #f7f7f7; border-bottom: 1px solid #e8e8e8; height: 35px;}
+ .table-type02 tbody td { padding:4px 7px; border-bottom:1px solid #e8e8e8; background-color:#fff; height: 35px;}
+ 
+ /*List Etc style*/
+ .table-type03 {width:100%; border-top:2px solid #1fabf2; background-color:#fff;}
+ .table-type03 tr {min-height:20px;}
+ .table-type03 tr:hover {background-color:#f4f8fb;}
+ .table-type03 th {border-bottom:0px !important; border:1px solid #e8e8e8; background-color:#f7f7f7; padding:5px; font-weight:600;}
+ .table-type03 th:first-child {border-left:0;}
+ .table-type03 th:last-child {border-right:0;}
+ .table-type03 td {border:1px solid #e8e8e8; padding:6px 5px; text-align:center; font-size:13px;}
+ .table-type03 td:first-child {border-left:0;}
+ .table-type03 td:last-child {border-right:0;}
+ .table-type03 tr:nth-child(4n-1) {background-color:#f4f8fb;}
+ .table-type03 tr:nth-child(4n) {background-color:#f4f8fb;}
+ .table-type03 tr:nth-child(2n) {background-color:#d2e2ff}
+
+/* 특정 테이블만 스크롤 */
+.table-scroll { width: 100%; height: 350px; /* 원하는 높이 */ overflow-y: auto; }
+.table-scroll thead th { position: sticky; top: 0; z-index: 2; background: #F4F5FA; }
+
+ /*paging*/
+ .paging-box ul {display: flex; justify-content: center; padding: 25px 0;}
+ .paging-box ul li a {padding: 6px 9px; display: block; width: 30px; height: 30px; border: 1px solid #eaeaea; text-align: center; margin-right: 10px; border-radius: 100%; background-color: #fff;}
+ .paging-box ul li a:hover {background-color:#f4f8fb;}
+ .paging-box ul li a.on {background-color: #018ace; color: #fff; border: none;}
+ .paging-box ul li a.btn-first {background: url(../img/btn-first.png) no-repeat center;}
+ .paging-box ul li a.btn-prev {background: url(../img/btn-prev.png) no-repeat center;}
+ .paging-box ul li a.btn-next {background: url(../img/btn-next.png) no-repeat center;}
+ .paging-box ul li a.btn-last {background: url(../img/btn-last.png) no-repeat center;}
+
+/*=================================================================================
+ * Title
+ =================================================================================*/
+/* sub-title */
+h2::before{content: ""; display: inline-block; background: url(../img/tit-ico.png)no-repeat; width: 14px; height: 21px; margin-right: 10px; margin-left: 5px; vertical-align: middle; padding-bottom: 6px;}
+.sub-title {font-size: 1.5rem; font-weight: 800; display: flex; justify-content: space-between; align-items: center; padding-bottom: 15px;}
+.sub-title ul li a {display: inline-block; font-weight: 300;}
+
+
+/*=================================================================================
+ * UI Style
+ =================================================================================*/
+
+/* 스타일 초기화 */ 
+select {-webkit-appearance: none; -moz-appearance: none; appearance: none;}
+select::-ms-expand { display: none; } /* IE 에서 Select box 화살표 제거 */ 
+[type="date"]::-webkit-inner-spin-button {display: none;}
+[type="date"]::-webkit-calendar-picker-indicator {opacity: 0;}
+input {-webkit-appearance: none; -moz-appearance: none; appearance: none;}/* input 기본 스타일 초기화 */
+input::-ms-clear { display: none; } /* IE10 이상에서 input box 에 추가된 지우기 버튼 제거 */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none; -moz-appearance: none; appearance: none;}  /*input type number 에서 화살표 제거 */
+button {border:none; }
+
+/* Input Style */
+select {vertical-align:middle; padding: 6px 25px 6px 10px; min-width:100%; background: url(../img/ico-select-m.png) calc(100% - 10px) 50% no-repeat #fff; border:1px solid #d4d9df; border-radius:4px; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-size:14px;}
+input[type="text"] {width:100%; border:1px solid #dcdcdc; padding:6px 5px 6px 10px; border-radius:4px; font-size:14px; font-family:inherit;}
+input[type="number"] {width:100%; border:1px solid #dcdcdc; padding: 6px 5px 6px 10px; border-radius:4px; font-size:14px; font-family:inherit;}
+input[type="date"] {width:100%; border:1px solid #dcdcdc; background:url(../img/ico-calender.png)#fff no-repeat 98% 50%; padding:6px 5px 6px 10px; border-radius:4px; font-size:14px; font-family:inherit;}
+input[type="password"] {width:100%; border:1px solid #dcdcdc; padding:4px 7px; border-radius:4px;}
+input[type="month"]{max-width: 120px; border: 1px solid #dcdcdc; background: url(../img/common/icon-calendar.png)#fff no-repeat 93% 50%; padding: 3px 5px; border-radius: 4px;}
+[type="month"]::-webkit-inner-spin-button {display: none;}
+[type="month"]::-webkit-calendar-picker-indicator {opacity: 0;}
+textarea {line-height:1.3; border: 1px solid #dcdcdc; width: 100%; min-height: 40px; border-radius: 4px; font-size:15px; font-family:inherit;}
+
+/* File Style */
+.file-box {display: flex;}
+.file-box input[type="text"] {width:calc(100% - 80px); margin-right:5px; overflow: hidden; padding:5px 10px; vertical-align: middle; border:1px solid #dcdcdc; background-color:#f5f5f5;}
+.file-box input[type="file"]{position: absolute; width:1px; height:1px; padding:0; margin:-1px; overflow: hidden; clip:rect(0,0,0,0); border:0;}
+.file-box label.file-nm {display: inline-block; padding: 5px 10px; vertical-align: middle; background-color: #325694; cursor: pointer; color:#fff; border-radius: 2px; font-size:14px; border: 1px solid #eaeaea;border-radius: 4px; }
+.file-box2 {display: flex; margin-top: 10px;}
+.file-box2 input[type="text"] {width:calc(100% - 80px); margin-right:5px; overflow: hidden; padding:9px 10px; vertical-align: middle; border:1px solid #dcdcdc; background-color:#f9f9f9; height: 25px; }
+.file-box2 input[type="file"]{position: absolute; width:1px; height:1px; padding:0; margin:-1px; overflow: hidden; clip:rect(0,0,0,0); border:0;}
+.file-box2 label.file-nm2 {display: inline-block; padding: 4px 10px; vertical-align: middle; background-color:#e9edf8; cursor: pointer; color:#3b79b6; border-radius: 2px; font-size:14px; font-weight: 500; height: 25px; border: 1px solid #eaeaea;border-radius: 4px; }
+.img-wrap .img-box div{ width: 100%; max-width: 220px; height: 140px; overflow: hidden; background-color: #f5f5f5; border: 1px solid #dcdcdc; border-radius: 2px;}
+.img-wrap2 .img-box2 div{ width: 100%; max-width: 220px; height: 140px; overflow: hidden; background-color: #f5f5f5; border: 1px solid #dcdcdc; border-radius: 2px;}
+
+/* Radio Style */       
+.btn-radio { position: relative; display: flex; }
+input[type="radio"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+input[type="radio"] + label { display: inline; position: relative; padding-left: 30px; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; color: #333333; }
+input[type="radio"] + label:before { content: ''; position: absolute; left: 9px; top: 3px; width: 14px; height: 14px; text-align: center; background: #fafafa; border: 1px solid #cacece; border-radius: 100%; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05); }
+input[type="radio"] + label:active:before, input[type="radio"]:checked + label:active:before { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1); }
+input[type="radio"]:checked + label:before { background: #fafafa; border-color: #adb8c0; border: 1px solid #30A1F2; }
+input[type="radio"]:checked + label:after { content: ''; position: absolute; top: 6px; left: 12px; width: 10px; height: 10px; border-radius: 100%; background-color: #30A1F2; }
+
+/* Checkbox Style */
+tr th { position: relative; }
+input[type="checkbox"] { margin-right: 5px; }
+input[type="checkbox"]:before { /* 가짜 체크박스 */
+    content: ' '; display: inline-block; width: 20px; /* 체크박스의 너비를 지정 */
+    height: 20px; /* 체크박스의 높이를 지정 */
+    line-height: 20px; /* 세로정렬을 위해 높이값과 일치 */
+    text-align: center; background: #ffffff; border: 1px solid #ccc; border-radius: 4px; vertical-align: middle; }
+input[type="checkbox"]:active:before, input[type="checkbox"]:checked:active:before { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1); }
+input[type="checkbox"]:checked:before { /* 체크박스를 체크했을때 */
+    content: '\2714'; /* 체크표시 유니코드 사용 */
+    align-content: center; color: #ffffff; background: #30A1F2; border: 1px solid #30A1F2; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1); }
+
+/* Scrollbar Style */
+/* scrollbar width */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+/* thumb */
+::-webkit-scrollbar-thumb { background: #c3c7cf; border-radius: 6px; }
+/* hover */
+::-webkit-scrollbar-thumb:hover { background: #B3B9C5; }

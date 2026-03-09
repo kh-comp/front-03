@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/*=================================================================================
+ * LOGIN
+=================================================================================*/
+
+.login-main-wrap {display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; min-width: 1280px; margin: 0 auto; box-sizing: border-box; background-color: #F3F8FF;}
+.login-main-wrap header {position: absolute; top: 70px; left: 70px;}
+.login-wrap {z-index: 9; width: 930px; height: 550px; display: flex; border-radius: 20px; background-color: #fff; box-shadow: 0px 0px 40px 0px #0D337726;}
+.login-wrap .login-box-left {display: flex; justify-content: center; align-items: center; border-radius: 20px 0 0 20px; width: 510px; height: 100%; background: url(../img/login-box-bg.png) no-repeat #051766 center;}
+.login-wrap .login-box-left img {width: 240px; height: 67px;}
+.login-wrap .login-box-right {display: flex; flex-direction: column; justify-content: center; align-items: center; width: 600px;}
+.login-box-right h1 {font-size: 3rem; color: #243479; font-weight: 800; margin-bottom: 30px;}
+.login-input input {background:#F4F7FA; font-size: 1rem !important; padding: 15px !important; width: 340px !important; height: 50px; border-radius: 8px;} /* 2025-06-12 폰트 크기 변경 : 윤상혁 */
+.login-input-box {gap: 15px; font-size: 1rem;}
+.login-input {display: flex; flex-direction: column; gap: 15px;}
+.login-input-box .login-input-cont {display: flex; flex-direction: column;}
+.login-input-cont label {margin-bottom: 5px; padding-left: 3px; color: #77849C;}
+.login-input-box button {width: 100%; background: #30A1F2; color: #fff; padding: 20px; font-size: 1.125rem; border-radius: 8px;}
+.login-alram {color: #FE262A; font-size: 0.94rem;}
+.login-alram span {margin-right: 5px;}
+.re-id {margin: 20px 0 30px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem;}
+.re-id ul {display: flex; align-items: center; justify-content: space-between; width: 100%;}
+.re-id input[type="checkbox"]::before {width: 18px; height: 18px; border-radius: 3px; background-color: #F4F7FA; border: 1px solid #D5D7DC; }
+
+
+/* 폰트 사이즈 기준준
+- 본문 (Body Text)   16px / 1rem   기준 글꼴   모바일에서 읽기 쉬운 기본 크기
+- 작은 본문 (Small Text)   14px / 0.875rem   보조 정보   예: 설명글, 푸터, 부가정보
+- 타이틀 (Title / H1)   24–32px / 1.5–2rem   강조 요소   메인 헤더, 섹션 제목 등
+- 소제목 (H2, H3 등)   18–24px / 1.125–1.5rem   구분용   카드 제목, 블록 구분
+- 버튼 텍스트   16–18px / 1–1.125rem   최소 터치 영역 확보 필요   
+- 내비게이션/탭/링크   16px / 1rem   터치 요소는 최소 16px 권장   
+- 캡션 / 주석   12–13px / 0.75–0.8125rem 매우 제한적으로만 사용
+- 페이지 제목   2rem (32px)   홈화면의 큰 제목
+- 섹션 제목   1.5rem (24px)   “이벤트 안내” 같은 블록 제목
+- 카드 제목   1.25rem (20px)   카드형 UI의 타이틀
+- 일반 본문   1rem (16px)   콘텐츠 본문, 설명글
+- 설명 또는 날짜   0.875rem (14px)   “2025.05.19” 같은 날짜표기
+- 푸터나 주석   0.75rem (12px)   저작권 표기 등
+*/
+
+
