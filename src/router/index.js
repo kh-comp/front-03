@@ -30,6 +30,12 @@ const router = createRouter({
           name: 'engine-uc',
           component: () => import('@/views/HomeView.vue'),
         },
+        // 샘플 페이지
+        {
+          path: 'sample/sample-1',
+          name: 'sample-1',
+          component: () => import('@/views/sample/SampleView1.vue'),
+        },
         // TODO: 나머지 라우트는 해당 페이지 컴포넌트 생성 시 추가
       ],
     },

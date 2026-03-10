@@ -10,6 +10,7 @@ import {
   Wrench,
   Hammer,
   LayoutDashboard,
+  FlaskConical,
 } from 'lucide-vue-next'
 
 export const MENU_ITEMS = [
@@ -79,6 +80,14 @@ export const MENU_ITEMS = [
     children: [
       { id: 'dashboard-main', title: '대시보드', path: '/dashboard' },
       { id: 'dashboard-stats', title: '통계', path: '/dashboard/stats' },
+    ],
+  },
+  {
+    id: 'sample',
+    title: '샘플페이지',
+    icon: FlaskConical,
+    children: [
+      { id: 'sample-1', title: '샘플페이지-1', path: '/sample/sample-1' },
     ],
   },
 ]
