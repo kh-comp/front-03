@@ -36,6 +36,11 @@ const router = createRouter({
           name: 'sample-1',
           component: () => import('@/views/sample/SampleView1.vue'),
         },
+        {
+          path: 'sample/sample-2',
+          name: 'sample-2',
+          component: () => import('@/views/sample/SampleView2.vue'),
+        },
         // TODO: 나머지 라우트는 해당 페이지 컴포넌트 생성 시 추가
       ],
     },
