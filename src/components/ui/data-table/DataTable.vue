@@ -267,7 +267,7 @@ defineExpose({
                   v-if="enableRowSelection"
                   :class="
                     cn(
-                      'w-12 px-3 py-3 text-center',
+                      'w-12 px-3 py-3 text-center align-middle',
                       'border-b border-table-border',
                     )
                   "
@@ -332,7 +332,7 @@ defineExpose({
                   <!-- 체크박스 셀 -->
                   <td
                     v-if="enableRowSelection"
-                    :class="cn('w-12 px-3 py-3 text-center')"
+                    :class="cn('w-12 px-3 py-3 text-center align-middle')"
                   >
                     <DataTableCheckbox
                       :checked="row.getIsSelected()"

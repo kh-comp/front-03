@@ -45,7 +45,7 @@ Complete reference for all Tailwind CSS utility classes organized by category.
 </div>
 
 <!-- Responsive grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
   <!-- Grid items -->
 </div>
 ```
@@ -58,7 +58,7 @@ Complete reference for all Tailwind CSS utility classes organized by category.
 <div class="relative">
   <div class="absolute top-0 right-0">Absolute</div>
 </div>
-<div class="fixed bottom-4 right-4">Fixed</div>
+<div class="fixed right-4 bottom-4">Fixed</div>
 <div class="sticky top-0">Sticky header</div>
 ```
 
@@ -240,22 +240,10 @@ Complete reference for all Tailwind CSS utility classes organized by category.
 ### Filters
 
 ```html
-<img
-  class="blur-sm"
-  src="..."
-/>
-<img
-  class="brightness-75"
-  src="..."
-/>
-<img
-  class="contrast-125"
-  src="..."
-/>
-<img
-  class="grayscale"
-  src="..."
-/>
+<img class="blur-sm" src="..." />
+<img class="brightness-75" src="..." />
+<img class="contrast-125" src="..." />
+<img class="grayscale" src="..." />
 ```
 
 **Docs:** `filter-*.mdx` (blur, brightness, contrast, etc.)
@@ -283,10 +271,7 @@ Complete reference for all Tailwind CSS utility classes organized by category.
 ### Disabled
 
 ```html
-<button
-  class="bg-blue-500 disabled:bg-gray-300 disabled:cursor-not-allowed"
-  disabled
->
+<button class="bg-blue-500 disabled:cursor-not-allowed disabled:bg-gray-300" disabled>
   Disabled
 </button>
 ```

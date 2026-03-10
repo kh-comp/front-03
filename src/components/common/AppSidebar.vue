@@ -1,15 +1,15 @@
 <script setup>
-/**
- * 사이드바 컴포넌트
- * 대한항공 사내시스템 LNB (Left Navigation Bar)
- * publish-sample/web/common.html 기반 재작성
- */
-import { cn } from '@/lib/utils'
-import { useSidebar } from '@/composables/useSidebar'
-import { MENU_ITEMS } from '@/constants/menu'
-import SidebarMenuItem from './SidebarMenuItem.vue'
+  /**
+   * 사이드바 컴포넌트
+   * 대한항공 사내시스템 LNB (Left Navigation Bar)
+   * publish-sample/web/common.html 기반 재작성
+   */
+  import { cn } from '@/lib/utils'
+  import { useSidebar } from '@/composables/useSidebar'
+  import { MENU_ITEMS } from '@/constants/menu'
+  import SidebarMenuItem from './SidebarMenuItem.vue'
 
-const { isOpen, toggle } = useSidebar()
+  const { isOpen, toggle } = useSidebar()
 </script>
 
 <template>
@@ -17,24 +17,20 @@ const { isOpen, toggle } = useSidebar()
   <aside
     :class="
       cn(
-        'fixed left-0 top-[60px] z-40',
+        'fixed top-[60px] left-0 z-40',
         'h-[calc(100vh-60px)]',
         'bg-lnb-bg',
-        'transition-transform duration-[250ms] ease-out',
-        isOpen ? 'translate-x-0' : '-translate-x-[240px]'
+        'transition-transform duration-300 ease-out',
+        isOpen ? 'translate-x-0' : '-translate-x-[240px]',
       )
     "
     style="width: 240px"
   >
     <!-- 메뉴 영역 -->
-    <nav class="h-full overflow-y-auto overflow-x-hidden p-4">
+    <nav class="h-full overflow-x-hidden overflow-y-auto p-4">
       <div class="lnb-menu">
         <ul class="w-full">
-          <SidebarMenuItem
-            v-for="menu in MENU_ITEMS"
-            :key="menu.id"
-            :menu="menu"
-          />
+          <SidebarMenuItem v-for="menu in MENU_ITEMS" :key="menu.id" :menu="menu" />
         </ul>
       </div>
     </nav>
@@ -45,12 +41,12 @@ const { isOpen, toggle } = useSidebar()
       :class="
         cn(
           'absolute top-0 -right-5',
-          'w-5 h-[75px]',
+          'h-[75px] w-5',
           'bg-lnb-toggle-bg',
           'rounded-r-lg',
           'flex items-center justify-center',
           'hover:bg-lnb-toggle-bg/90',
-          'transition-colors'
+          'transition-colors',
         )
       "
       :title="isOpen ? '사이드바 닫기' : '사이드바 열기'"
@@ -93,21 +89,21 @@ const { isOpen, toggle } = useSidebar()
 </template>
 
 <style scoped>
-/* 커스텀 스크롤바 */
-nav::-webkit-scrollbar {
-  width: 6px;
-}
+  /* 커스텀 스크롤바 */
+  nav::-webkit-scrollbar {
+    width: 6px;
+  }
 
-nav::-webkit-scrollbar-track {
-  background: transparent;
-}
+  nav::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-nav::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-}
+  nav::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
 
-nav::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
+  nav::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 </style>
