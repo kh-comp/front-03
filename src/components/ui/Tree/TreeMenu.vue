@@ -56,14 +56,19 @@
 </script>
 
 <template>
-  <div :class="cn('h-full flex flex-col bg-tree-bg border border-tree-border rounded-md', props.class)">
+  <div
+    :class="cn('bg-tree-bg flex h-full flex-col rounded-md border border-slate-200', props.class)"
+  >
     <!-- 헤더: 크기 고정 -->
-    <div v-if="title" class="shrink-0 bg-tree-header-bg text-tree-header-text px-5 py-4 rounded-t-md">
-      <span class="text-sm font-semibold">{{ title }}</span>
+    <div
+      v-if="title"
+      class="bg-tree-header-bg text-tree-header-text shrink-0 rounded-t-md px-5 py-4"
+    >
+      <span class="text-lg font-semibold">{{ title }}</span>
     </div>
 
     <!-- 트리 노드 목록: 스크롤 가능 -->
-    <ul class="flex-1 overflow-y-auto p-4 space-y-1">
+    <ul class="flex-1 space-y-1 overflow-y-auto p-4">
       <TreeNode v-for="node in data" :key="node.id" :node="node" :level="0" />
     </ul>
   </div>

@@ -63,6 +63,12 @@
   /* Checkbox 색상 매핑 */
   --color-checkbox-checked-bg: var(--checkbox-checked-bg);
 
+  /* Brand 색상 매핑 */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-light: var(--brand-light);
+  --color-brand-accent: var(--brand-accent);
+
   /* Pagination 색상 매핑 */
   --color-pagination-bg: var(--pagination-bg);
   --color-pagination-border: var(--pagination-border);
@@ -170,6 +176,12 @@
   --lnb-toggle-bg: oklch(0.7 0.18 210); /* #30AAF2 */
   --lnb-width: 240px;
   --header-height: 60px;
+
+  /* Brand 전용 토큰 */
+  --brand: #01459f;
+  --brand-hover: #3a4886;
+  --brand-light: #d9e0ff;
+  --brand-accent: #30a1f2;
 
   /* Header 전용 토큰 */
   --header-bg: oklch(1 0 0); /* white */
@@ -302,6 +314,12 @@
   --btn-modify: oklch(0.6 0.15 210);
   --btn-enroll: oklch(0.55 0.12 145);
   --btn-excel: oklch(0.55 0.1 85);
+
+  /* Brand 다크모드 (임시) */
+  --brand: #3a4886;
+  --brand-hover: #d9e0ff;
+  --brand-light: #051766;
+  --brand-accent: #30a1f2;
 
   /* Table 다크모드 */
   --table-border-top: oklch(0.5 0.15 242);

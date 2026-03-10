@@ -1,168 +1,168 @@
 <script setup>
-/**
- * 샘플 페이지 1
- * UI 컴포넌트 테스트 페이지
- */
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+  /**
+   * 샘플 페이지 1
+   * UI 컴포넌트 테스트 페이지
+   */
+  import { ref } from 'vue'
+  import { cn } from '@/lib/utils'
 
-// 공통 컴포넌트
-import PageHeader from '@/components/common/PageHeader.vue'
+  // 공통 컴포넌트
+  import PageHeader from '@/components/common/PageHeader.vue'
 
-// UI 컴포넌트
-import { Button } from '@/components/ui/Button'
-import { Input, Select, Checkbox, Radio, Textarea } from '@/components/ui/Input'
-import { Tabs, TabList, TabTrigger, TabContent } from '@/components/ui/Tabs'
-import { TreeMenu } from '@/components/ui/Tree'
-import { FormSection, FormTable } from '@/components/ui/Form'
+  // UI 컴포넌트
+  import { Button } from '@/components/ui/Button'
+  import { Input, Select, Checkbox, Radio, Textarea } from '@/components/ui/Input'
+  import { Tabs, TabList, TabTrigger, TabContent } from '@/components/ui/Tabs'
+  import { TreeMenu } from '@/components/ui/Tree'
+  import { FormSection, FormTable } from '@/components/ui/Form'
 
-// PageHeader 액션
-const pageActions = ['delete', 'modify', 'enroll', 'excel', 'return']
-const handleActionClick = (action) => {
-  console.log('Action clicked:', action)
-  alert(`${action} 버튼 클릭!`)
-}
+  // PageHeader 액션
+  const pageActions = ['delete', 'modify', 'enroll', 'excel', 'return']
+  const handleActionClick = (action) => {
+    console.log('Action clicked:', action)
+    alert(`${action} 버튼 클릭!`)
+  }
 
-// 탭 상태
-const activeTab = ref('main')
-const tabs = [
-  { id: 'main', label: 'Main' },
-  { id: 'sb-rule', label: 'SB Rule' },
-  { id: 'documents', label: 'Documents' },
-  { id: 'rules', label: 'Rules' },
-]
+  // 탭 상태
+  const activeTab = ref('main')
+  const tabs = [
+    { id: 'main', label: 'Main' },
+    { id: 'sb-rule', label: 'SB Rule' },
+    { id: 'documents', label: 'Documents' },
+    { id: 'rules', label: 'Rules' },
+  ]
 
-// 트리 데이터
-const treeData = ref([
-  {
-    id: '1',
-    label: '1depth',
-    checked: true,
-    children: [
-      {
-        id: '1-1',
-        label: '2depth',
-        checked: false,
-        children: [
-          { id: '1-1-1', label: '3depth', checked: false },
-          { id: '1-1-2', label: '3depth', checked: false },
-        ],
-      },
-    ],
-  },
-  {
-    id: '2',
-    label: '1depth',
-    checked: true,
-    children: [
-      {
-        id: '2-1',
-        label: '2depth',
-        checked: false,
-        children: [
-          { id: '2-1-1', label: '3depth', checked: false },
-          { id: '2-1-2', label: '3depth', checked: false },
-        ],
-      },
-      {
-        id: '2-2',
-        label: '2depth',
-        checked: false,
-        children: [
-          { id: '2-2-1', label: '3depth', checked: false },
-          { id: '2-2-2', label: '3depth', checked: false },
-        ],
-      },
-    ],
-  },
-  {
-    id: '3',
-    label: '1depth',
-    checked: true,
-    children: [
-      {
-        id: '3-1',
-        label: '2depth',
-        checked: true,
-        children: [
-          { id: '3-1-1', label: '3depth', checked: false },
-          { id: '3-1-2', label: '3depth', checked: false },
-          { id: '3-1-3', label: '3depth', checked: false },
-          { id: '3-1-4', label: '3depth', checked: false },
-        ],
-      },
-      {
-        id: '3-2',
-        label: '2depth',
-        checked: true,
-        children: [
-          { id: '3-2-1', label: '3depth', checked: false },
-          { id: '3-2-2', label: '3depth', checked: false },
-        ],
-      },
-      {
-        id: '3-3',
-        label: '2depth',
-        checked: true,
-        children: [
-          { id: '3-3-1', label: '3depth', checked: false },
-          { id: '3-3-2', label: '3depth', checked: false },
-        ],
-      },
-    ],
-  },
-])
+  // 트리 데이터
+  const treeData = ref([
+    {
+      id: '1',
+      label: '1depth',
+      checked: true,
+      children: [
+        {
+          id: '1-1',
+          label: '2depth',
+          checked: false,
+          children: [
+            { id: '1-1-1', label: '3depth', checked: false },
+            { id: '1-1-2', label: '3depth', checked: false },
+          ],
+        },
+      ],
+    },
+    {
+      id: '2',
+      label: '1depth',
+      checked: true,
+      children: [
+        {
+          id: '2-1',
+          label: '2depth',
+          checked: false,
+          children: [
+            { id: '2-1-1', label: '3depth', checked: false },
+            { id: '2-1-2', label: '3depth', checked: false },
+          ],
+        },
+        {
+          id: '2-2',
+          label: '2depth',
+          checked: false,
+          children: [
+            { id: '2-2-1', label: '3depth', checked: false },
+            { id: '2-2-2', label: '3depth', checked: false },
+          ],
+        },
+      ],
+    },
+    {
+      id: '3',
+      label: '1depth',
+      checked: true,
+      children: [
+        {
+          id: '3-1',
+          label: '2depth',
+          checked: true,
+          children: [
+            { id: '3-1-1', label: '3depth', checked: false },
+            { id: '3-1-2', label: '3depth', checked: false },
+            { id: '3-1-3', label: '3depth', checked: false },
+            { id: '3-1-4', label: '3depth', checked: false },
+          ],
+        },
+        {
+          id: '3-2',
+          label: '2depth',
+          checked: true,
+          children: [
+            { id: '3-2-1', label: '3depth', checked: false },
+            { id: '3-2-2', label: '3depth', checked: false },
+          ],
+        },
+        {
+          id: '3-3',
+          label: '2depth',
+          checked: true,
+          children: [
+            { id: '3-3-1', label: '3depth', checked: false },
+            { id: '3-3-2', label: '3depth', checked: false },
+          ],
+        },
+      ],
+    },
+  ])
 
-const handleNodeClick = (node) => {
-  console.log('Node clicked:', node)
-}
+  const handleNodeClick = (node) => {
+    console.log('Node clicked:', node)
+  }
 
-const handleCheckChange = (nodeId, checked) => {
-  console.log('Check changed:', nodeId, checked)
-}
+  const handleCheckChange = (nodeId, checked) => {
+    console.log('Check changed:', nodeId, checked)
+  }
 
-// 폼 데이터
-const formData = ref({
-  text1: '',
-  text2: '',
-  text3: '',
-  textarea1: '',
-  select1: '',
-  select2: '',
-  radio1: 'yes',
-  checkbox1: false,
-  date1: '',
-})
+  // 폼 데이터
+  const formData = ref({
+    text1: '',
+    text2: '',
+    text3: '',
+    textarea1: '',
+    select1: '',
+    select2: '',
+    radio1: 'yes',
+    checkbox1: false,
+    date1: '',
+  })
 
-const selectOptions = [
-  { value: 'a', label: 'select A' },
-  { value: 'b', label: 'select B' },
-  { value: 'c', label: 'select C' },
-  { value: 'd', label: 'select D' },
-]
+  const selectOptions = [
+    { value: 'a', label: 'select A' },
+    { value: 'b', label: 'select B' },
+    { value: 'c', label: 'select C' },
+    { value: 'd', label: 'select D' },
+  ]
 
-// 버튼 상태
-const buttonLoading = ref(false)
+  // 버튼 상태
+  const buttonLoading = ref(false)
 
-const handleButtonClick = () => {
-  buttonLoading.value = true
-  setTimeout(() => {
-    buttonLoading.value = false
-    alert('버튼 클릭!')
-  }, 2000)
-}
+  const handleButtonClick = () => {
+    buttonLoading.value = true
+    setTimeout(() => {
+      buttonLoading.value = false
+      alert('버튼 클릭!')
+    }, 2000)
+  }
 
-const handleFormSave = () => {
-  alert('폼 저장!\n' + JSON.stringify(formData.value, null, 2))
-}
+  const handleFormSave = () => {
+    alert('폼 저장!\n' + JSON.stringify(formData.value, null, 2))
+  }
 
-// FormTable 컬럼 비율
-const formColumns = [20, 30, 20, 30]
+  // FormTable 컬럼 비율
+  const formColumns = [20, 30, 20, 30]
 </script>
 
 <template>
   <!-- 전체 컨테이너: 명시적 높이, 오버플로우 숨김 -->
-  <div class="flex flex-col h-[calc(100vh-60px)] overflow-hidden p-5 box-border">
+  <div class="box-border flex h-[calc(100vh-60px)] flex-col overflow-hidden bg-slate-100 p-5">
     <!-- 페이지 헤더: 크기 고정 -->
     <PageHeader
       title="샘플 페이지 1"
@@ -171,10 +171,10 @@ const formColumns = [20, 30, 20, 30]
       @action-click="handleActionClick"
     />
 
-    <!-- 메인 컨텐츠: 나머지 공간 차지 -->
-    <div class="flex gap-5 flex-1 min-h-0 overflow-hidden mt-5">
+    <!-- 메인 컨텐츠: 나머지 공간 차지 (상단 여백 줄임) -->
+    <div class="flex min-h-0 flex-1 gap-5 overflow-hidden">
       <!-- 좌측: 트리 메뉴 - 높이 100% -->
-      <div class="w-[280px] shrink-0 h-full">
+      <div class="h-full w-[280px] shrink-0">
         <TreeMenu
           title="Master Configuration"
           :data="treeData"
@@ -186,10 +186,12 @@ const formColumns = [20, 30, 20, 30]
       </div>
 
       <!-- 우측: 탭 컨텐츠 - flex 컬럼 구조 -->
-      <div class="flex-1 flex flex-col min-h-0 min-w-0">
-        <Tabs v-model="activeTab" :tabs="tabs" class="flex-1 flex flex-col min-h-0">
+      <div
+        class="flex min-h-0 min-w-0 flex-1 flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+      >
+        <Tabs v-model="activeTab" :tabs="tabs" class="flex min-h-0 flex-1 flex-col">
           <!-- 탭 리스트: 크기 고정 -->
-          <TabList class="shrink-0 mb-4">
+          <TabList class="mb-4 shrink-0">
             <TabTrigger tab-id="main" />
             <TabTrigger tab-id="sb-rule" />
             <TabTrigger tab-id="documents" />
@@ -199,33 +201,36 @@ const formColumns = [20, 30, 20, 30]
           <!-- Main 탭 컨텐츠: 스크롤 가능 -->
           <TabContent tab-id="main" class="flex-1 overflow-y-auto">
             <!-- 폼 섹션 1 -->
-            <FormSection
-              title="Create Master Configuration"
-              @save="handleFormSave"
-            >
+            <FormSection title="Create Master Configuration" @save="handleFormSave">
               <FormTable :columns="formColumns">
-                <tr class="border-b border-form-border">
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                <tr class="border-form-border border-b">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     텍스트
                   </th>
-                  <td class="px-4 py-3 text-sm border-r border-form-border">
-                    text
-                  </td>
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                  <td class="border-form-border border-r px-4 py-3 text-sm">text</td>
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     <label for="text2">텍스트</label>
                   </th>
                   <td class="px-4 py-3 text-sm">
                     <Input id="text2" v-model="formData.text2" />
                   </td>
                 </tr>
-                <tr class="border-b border-form-border">
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                <tr class="border-form-border border-b">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     <label for="select1">선택</label>
                   </th>
-                  <td class="px-4 py-3 text-sm border-r border-form-border">
+                  <td class="border-form-border border-r px-4 py-3 text-sm">
                     <Select id="select1" v-model="formData.select1" :options="selectOptions" />
                   </td>
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     라디오
                   </th>
                   <td class="px-4 py-3 text-sm">
@@ -247,18 +252,18 @@ const formColumns = [20, 30, 20, 30]
                     </div>
                   </td>
                 </tr>
-                <tr class="border-b border-form-border">
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                <tr class="border-form-border border-b">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     체크박스
                   </th>
-                  <td class="px-4 py-3 text-sm border-r border-form-border">
-                    <Checkbox
-                      id="checkbox1"
-                      v-model="formData.checkbox1"
-                      label="체크박스"
-                    />
+                  <td class="border-form-border border-r px-4 py-3 text-sm">
+                    <Checkbox id="checkbox1" v-model="formData.checkbox1" label="체크박스" />
                   </td>
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     <label for="text3">텍스트</label>
                   </th>
                   <td class="px-4 py-3 text-sm">
@@ -266,7 +271,9 @@ const formColumns = [20, 30, 20, 30]
                   </td>
                 </tr>
                 <tr>
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     텍스트
                   </th>
                   <td colspan="3" class="px-4 py-3 text-sm">
@@ -279,28 +286,36 @@ const formColumns = [20, 30, 20, 30]
             <!-- 폼 섹션 2 -->
             <FormSection title="Position Info" class="mt-6" @save="handleFormSave">
               <FormTable :columns="formColumns">
-                <tr class="border-b border-form-border">
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                <tr class="border-form-border border-b">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     <label for="date1">날짜</label>
                   </th>
-                  <td class="px-4 py-3 text-sm border-r border-form-border">
+                  <td class="border-form-border border-r px-4 py-3 text-sm">
                     <Input id="date1" v-model="formData.date1" type="date" />
                   </td>
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     <label for="select2">선택</label>
                   </th>
                   <td class="px-4 py-3 text-sm">
                     <Select id="select2" v-model="formData.select2" :options="selectOptions" />
                   </td>
                 </tr>
-                <tr class="border-b border-form-border">
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                <tr class="border-form-border border-b">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     텍스트
                   </th>
-                  <td class="px-4 py-3 text-sm border-r border-form-border">
+                  <td class="border-form-border border-r px-4 py-3 text-sm">
                     <Input v-model="formData.text1" />
                   </td>
-                  <th class="bg-form-label-bg text-form-label-text px-4 py-3 text-sm font-medium text-left border-r border-form-border">
+                  <th
+                    class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
+                  >
                     텍스트
                   </th>
                   <td class="px-4 py-3 text-sm">
@@ -338,19 +353,19 @@ const formColumns = [20, 30, 20, 30]
               <div class="space-y-4">
                 <div class="grid grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-medium mb-2">기본 Input</label>
+                    <label class="mb-2 block text-sm font-medium">기본 Input</label>
                     <Input v-model="formData.text1" placeholder="입력하세요" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium mb-2">에러 상태</label>
+                    <label class="mb-2 block text-sm font-medium">에러 상태</label>
                     <Input v-model="formData.text1" :error="true" placeholder="에러 상태" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium mb-2">Disabled</label>
+                    <label class="mb-2 block text-sm font-medium">Disabled</label>
                     <Input v-model="formData.text1" :disabled="true" placeholder="비활성화" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium mb-2">Readonly</label>
+                    <label class="mb-2 block text-sm font-medium">Readonly</label>
                     <Input v-model="formData.text1" :readonly="true" placeholder="읽기 전용" />
                   </div>
                 </div>
@@ -360,21 +375,15 @@ const formColumns = [20, 30, 20, 30]
 
           <!-- 다른 탭 컨텐츠들: 스크롤 가능 -->
           <TabContent tab-id="sb-rule" class="flex-1 overflow-y-auto">
-            <div class="p-8 text-center text-muted-foreground">
-              SB Rule 탭 컨텐츠
-            </div>
+            <div class="text-muted-foreground p-8 text-center">SB Rule 탭 컨텐츠</div>
           </TabContent>
 
           <TabContent tab-id="documents" class="flex-1 overflow-y-auto">
-            <div class="p-8 text-center text-muted-foreground">
-              Documents 탭 컨텐츠
-            </div>
+            <div class="text-muted-foreground p-8 text-center">Documents 탭 컨텐츠</div>
           </TabContent>
 
           <TabContent tab-id="rules" class="flex-1 overflow-y-auto">
-            <div class="p-8 text-center text-muted-foreground">
-              Rules 탭 컨텐츠
-            </div>
+            <div class="text-muted-foreground p-8 text-center">Rules 탭 컨텐츠</div>
           </TabContent>
         </Tabs>
       </div>
