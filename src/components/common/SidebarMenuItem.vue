@@ -55,37 +55,35 @@ const isActiveDep2 = (path) => {
         cn(
           'lnb-dep1',
           'w-full inline-flex items-center justify-between',
-          'px-[10px] py-[8px] pr-0',
-          'text-sm text-lnb-text',
-          'hover:text-white',
-          'transition-colors',
+          'px-3 py-3',
+          'text-base font-medium text-lnb-text',
+          'rounded-lg',
+          'hover:bg-lnb-bg-hover hover:text-white',
+          'transition-all duration-200',
+          isExpanded && 'bg-lnb-bg-hover text-white',
           isParentActive && 'text-white'
         )
       "
       @click="handleDep1Click"
     >
       <span class="flex items-center gap-3">
-        <component :is="menu.icon" v-if="menu.icon" class="w-4 h-4" />
+        <component :is="menu.icon" v-if="menu.icon" class="w-5 h-5 shrink-0" />
         <span>{{ menu.title }}</span>
       </span>
       <!-- 화살표 아이콘 (2depth 있는 경우만) -->
       <svg
         v-if="menu.children?.length"
         xmlns="http://www.w3.org/2000/svg"
-        width="12"
-        height="12"
+        width="16"
+        height="16"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        :class="
-          cn(
-            'transition-transform duration-200',
-            isExpanded && 'rotate-180'
-          )
-        "
+        class="shrink-0 transition-transform duration-200"
+        :class="isExpanded && 'rotate-180'"
       >
         <path d="m6 9 6 6 6-6" />
       </svg>
@@ -100,7 +98,7 @@ const isActiveDep2 = (path) => {
     >
       <ul
         v-show="isExpanded && menu.children?.length"
-        class="dep2 mt-2 bg-white/[0.12] rounded-lg p-[10px]_14px]"
+        class="dep2 mt-2 bg-white/10 rounded-lg p-2"
       >
         <li
           v-for="child in menu.children"
@@ -113,12 +111,13 @@ const isActiveDep2 = (path) => {
               cn(
                 'lnb-dep2',
                 'block w-full',
-                'px-[10px] py-[6px] pl-[14px]',
-                'text-[13px] font-normal text-lnb-text',
-                'hover:text-white',
-                'transition-colors',
-                isActiveDep2(child.path) && 'text-white font-medium',
-                isActiveDep2(child.path) && 'before:content-[\'\'] before:inline-block before:w-0 before:h-0 before:mr-[5px] before:border-l-[9px] before:border-l-white before:border-t-[6px] before:border-t-transparent before:border-b-[6px] before:border-b-transparent before:rounded-sm'
+                'px-3 py-2 pl-4',
+                'text-sm font-normal text-lnb-text',
+                'rounded-md',
+                'hover:bg-white/10 hover:text-white',
+                'transition-all duration-200',
+                isActiveDep2(child.path) && 'text-white font-medium bg-white/15',
+                isActiveDep2(child.path) && 'before:content-[\'\'] before:inline-block before:w-0 before:h-0 before:mr-2 before:border-l-[8px] before:border-l-white before:border-t-[5px] before:border-t-transparent before:border-b-[5px] before:border-b-transparent'
               )
             "
           >
@@ -143,10 +142,9 @@ const isActiveDep2 = (path) => {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-right: 5px;
-  border-left: 9px solid white;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-radius: 2px;
+  margin-right: 8px;
+  border-left: 8px solid white;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
 }
 </style>
