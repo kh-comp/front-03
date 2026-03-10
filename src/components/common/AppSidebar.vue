@@ -39,12 +39,12 @@ const { isOpen, toggle } = useSidebar()
       </div>
     </nav>
 
-    <!-- 토글 버튼 (우측 외부) -->
+    <!-- 토글 버튼 (우측 외부 상단) -->
     <button
       type="button"
       :class="
         cn(
-          'absolute top-1/2 -right-5 -translate-y-1/2',
+          'absolute top-0 -right-5',
           'w-5 h-[75px]',
           'bg-lnb-toggle-bg',
           'rounded-r-lg',
