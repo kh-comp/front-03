@@ -40,3 +40,6 @@ __screenshots__/
 
 # playwright
 .playwright-mcp
+
+# agent
+.agent/*
