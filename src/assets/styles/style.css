@@ -63,6 +63,45 @@
   /* Checkbox 색상 매핑 */
   --color-checkbox-checked-bg: var(--checkbox-checked-bg);
 
+  /* Pagination 색상 매핑 */
+  --color-pagination-bg: var(--pagination-bg);
+  --color-pagination-border: var(--pagination-border);
+  --color-pagination-active-bg: var(--pagination-active-bg);
+  --color-pagination-hover-bg: var(--pagination-hover-bg);
+  --color-pagination-text: var(--pagination-text);
+  --color-pagination-active-text: var(--pagination-active-text);
+
+  /* PageHeader 색상 매핑 */
+  --color-page-header-title: var(--page-header-title);
+  --color-page-header-border: var(--page-header-border);
+
+  /* TreeMenu 색상 매핑 */
+  --color-tree-bg: var(--tree-bg);
+  --color-tree-header-bg: var(--tree-header-bg);
+  --color-tree-header-text: var(--tree-header-text);
+  --color-tree-border: var(--tree-border);
+  --color-tree-node-hover: var(--tree-node-hover);
+  --color-tree-node-text: var(--tree-node-text);
+
+  /* Tabs 색상 매핑 */
+  --color-tabs-bg: var(--tabs-bg);
+  --color-tabs-active-bg: var(--tabs-active-bg);
+  --color-tabs-active-text: var(--tabs-active-text);
+  --color-tabs-inactive-text: var(--tabs-inactive-text);
+  --color-tabs-border: var(--tabs-border);
+
+  /* Form 색상 매핑 */
+  --color-form-section-title: var(--form-section-title);
+  --color-form-label-bg: var(--form-label-bg);
+  --color-form-label-text: var(--form-label-text);
+  --color-form-border: var(--form-border);
+
+  /* Button 아이콘 색상 매핑 */
+  --color-btn-delete: var(--btn-delete);
+  --color-btn-modify: var(--btn-modify);
+  --color-btn-enroll: var(--btn-enroll);
+  --color-btn-excel: var(--btn-excel);
+
   /* LNB Sidebar 색상 매핑 */
   --color-lnb-bg: var(--lnb-bg);
   --color-lnb-bg-hover: var(--lnb-bg-hover);
@@ -150,6 +189,45 @@
   /* Checkbox 전용 토큰 */
   --checkbox-checked-bg: oklch(0.7 0.18 210); /* #30A1F2 */
 
+  /* Pagination 전용 토큰 */
+  --pagination-bg: oklch(1 0 0);
+  --pagination-border: oklch(0.92 0.01 0);
+  --pagination-active-bg: oklch(0.6 0.15 210);
+  --pagination-hover-bg: oklch(0.97 0.03 240);
+  --pagination-text: oklch(0.3 0.02 265);
+  --pagination-active-text: oklch(1 0 0);
+
+  /* PageHeader 전용 토큰 */
+  --page-header-title: oklch(0.27 0.1 265);
+  --page-header-border: oklch(0.92 0.01 0);
+
+  /* TreeMenu 전용 토큰 */
+  --tree-bg: oklch(1 0 0);
+  --tree-header-bg: oklch(0.7 0.18 210);
+  --tree-header-text: oklch(1 0 0);
+  --tree-border: oklch(0.55 0.02 250);
+  --tree-node-hover: oklch(0.97 0.01 0);
+  --tree-node-text: oklch(0.3 0.02 265);
+
+  /* Tabs 전용 토큰 */
+  --tabs-bg: oklch(0.97 0.03 265);
+  --tabs-active-bg: oklch(0.35 0.1 265);
+  --tabs-active-text: oklch(1 0 0);
+  --tabs-inactive-text: oklch(0.45 0.05 265);
+  --tabs-border: oklch(0.92 0.01 0);
+
+  /* Form 전용 토큰 */
+  --form-section-title: oklch(0.2 0.02 265);
+  --form-label-bg: oklch(0.97 0.01 270);
+  --form-label-text: oklch(0.35 0.05 265);
+  --form-border: oklch(0.92 0.01 0);
+
+  /* Button 아이콘 전용 토큰 */
+  --btn-delete: oklch(0.577 0.245 27.325);
+  --btn-modify: oklch(0.7 0.18 210);
+  --btn-enroll: oklch(0.6 0.15 145);
+  --btn-excel: oklch(0.6 0.12 85);
+
   /*
    * 새로운 컴포넌트 색상 추가 방법:
    * 1. 여기(:root)에 CSS 변수 정의
@@ -193,6 +271,53 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(0.278 0.033 255.808);
   --sidebar-ring: oklch(0.648 0.15 242.603);
+
+  /* PageHeader 다크모드 */
+  --page-header-title: oklch(0.95 0.02 265);
+  --page-header-border: oklch(0.3 0.03 255);
+
+  /* TreeMenu 다크모드 */
+  --tree-bg: oklch(0.2 0.03 265);
+  --tree-header-bg: oklch(0.5 0.15 242);
+  --tree-header-text: oklch(1 0 0);
+  --tree-border: oklch(0.35 0.03 255);
+  --tree-node-hover: oklch(0.25 0.03 265);
+  --tree-node-text: oklch(0.9 0.02 265);
+
+  /* Tabs 다크모드 */
+  --tabs-bg: oklch(0.2 0.03 265);
+  --tabs-active-bg: oklch(0.5 0.15 242);
+  --tabs-active-text: oklch(1 0 0);
+  --tabs-inactive-text: oklch(0.7 0.05 265);
+  --tabs-border: oklch(0.3 0.03 255);
+
+  /* Form 다크모드 */
+  --form-section-title: oklch(0.95 0.02 265);
+  --form-label-bg: oklch(0.25 0.03 265);
+  --form-label-text: oklch(0.9 0.02 265);
+  --form-border: oklch(0.3 0.03 255);
+
+  /* Button 아이콘 다크모드 */
+  --btn-delete: oklch(0.65 0.2 25);
+  --btn-modify: oklch(0.6 0.15 210);
+  --btn-enroll: oklch(0.55 0.12 145);
+  --btn-excel: oklch(0.55 0.1 85);
+
+  /* Table 다크모드 */
+  --table-border-top: oklch(0.5 0.15 242);
+  --table-bg: oklch(0.2 0.03 265);
+  --table-border: oklch(0.3 0.03 255);
+  --table-header-bg: oklch(0.25 0.03 265);
+  --table-row-hover: oklch(0.25 0.03 265);
+  --table-row-selected: oklch(0.3 0.05 242);
+
+  /* Pagination 다크모드 */
+  --pagination-bg: oklch(0.2 0.03 265);
+  --pagination-border: oklch(0.3 0.03 255);
+  --pagination-active-bg: oklch(0.5 0.15 242);
+  --pagination-hover-bg: oklch(0.25 0.03 265);
+  --pagination-text: oklch(0.9 0.02 265);
+  --pagination-active-text: oklch(1 0 0);
 }
 
 /* ============================================
