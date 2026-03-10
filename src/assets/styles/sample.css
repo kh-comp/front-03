@@ -1,21 +1,10 @@
-@import 'tailwindcss';
-
-/* ============================================
-   Dark Mode 커스텀 변형
-   ============================================ */
 @custom-variant dark (&:is(.dark *));
 
-/* ============================================
-   Tailwind 테마 매핑 (@theme inline)
-   ============================================ */
 @theme inline {
-  /* Border Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  /* 기본 색상 매핑 */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -34,15 +23,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
-  /* Chart 색상 */
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-
-  /* Sidebar 색상 */
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -52,7 +37,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Table 색상 매핑 */
+  /* Table 전용 색상 매핑 */
   --color-table-border-top: var(--table-border-top);
   --color-table-bg: var(--table-bg);
   --color-table-border: var(--table-border);
@@ -60,32 +45,12 @@
   --color-table-row-hover: var(--table-row-hover);
   --color-table-row-selected: var(--table-row-selected);
 
-  /* Checkbox 색상 매핑 */
+  /* Checkbox 전용 색상 매핑 */
   --color-checkbox-checked-bg: var(--checkbox-checked-bg);
-
-  /* LNB Sidebar 색상 매핑 */
-  --color-lnb-bg: var(--lnb-bg);
-  --color-lnb-bg-hover: var(--lnb-bg-hover);
-  --color-lnb-text: var(--lnb-text);
-  --color-lnb-active-bg: var(--lnb-active-bg);
-  --color-lnb-active-text: var(--lnb-active-text);
-  --color-lnb-toggle-bg: var(--lnb-toggle-bg);
-
-  /* Header 색상 매핑 */
-  --color-header-bg: var(--header-bg);
-  --color-header-text: var(--header-text);
-  --color-header-hover-bg: var(--header-hover-bg);
-  --color-search-border: var(--search-border);
 }
 
-/* ============================================
-   CSS 변수 정의 (:root)
-   ============================================ */
 :root {
-  /* Border Radius */
   --radius: 0.625rem;
-
-  /* 기본 색상 */
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -104,15 +69,11 @@
   --border: oklch(0.92 0.013 255.508);
   --input: oklch(0.92 0.013 255.508);
   --ring: oklch(0.588 0.158 241.966);
-
-  /* Chart 색상 */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-
-  /* Sidebar 색상 */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
   --sidebar-primary: oklch(0.588 0.158 241.966);
@@ -149,18 +110,8 @@
 
   /* Checkbox 전용 토큰 */
   --checkbox-checked-bg: oklch(0.7 0.18 210); /* #30A1F2 */
-
-  /*
-   * 새로운 컴포넌트 색상 추가 방법:
-   * 1. 여기(:root)에 CSS 변수 정의
-   * 2. @theme inline에 --color- 접두사로 매핑
-   * 3. Tailwind 클래스로 사용 (bg-xxx, text-xxx)
-   */
 }
 
-/* ============================================
-   Dark Mode 변수
-   ============================================ */
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.985 0.001 106.423);
@@ -195,9 +146,6 @@
   --sidebar-ring: oklch(0.648 0.15 242.603);
 }
 
-/* ============================================
-   Base Layer
-   ============================================ */
 @layer base {
   * {
     @apply border-border outline-ring/50;
