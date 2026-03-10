@@ -44,43 +44,38 @@
   const handleKeydown = (event) => {
     if (isDisabled.value) return
 
-    const currentIndex = tabs.value.findIndex((t) => t.id === props.tabId)
-    let newIndex = currentIndex
-
-    switch (event.key) {
-      case 'ArrowLeft':
-        newIndex = currentIndex > 0 ? currentIndex - 1 : tabs.value.length - 1
-        break
-      case 'ArrowRight':
-        newIndex = currentIndex < tabs.value.length - 1 ? currentIndex + 1 : 0
-        break
-      case 'Home':
-        newIndex = 0
-        break
-      case 'End':
-        newIndex = tabs.value.length - 1
-        break
-      default:
-        return
-    }
-
-    // 비활성화된 탭 건너뛰기
-    while (tabs.value[newIndex]?.disabled) {
-      if (event.key === 'ArrowRight' || event.key === 'Home') {
-        newIndex = newIndex < tabs.value.length - 1 ? newIndex + 1 : 0
-      } else {
-        newIndex = newIndex > 0 ? newIndex - 1 : tabs.value.length - 1
-      }
-    }
+    const validKeys = ['ArrowLeft', 'ArrowRight', 'Home', 'End']
+    if (!validKeys.includes(event.key)) return
 
     event.preventDefault()
-    setActiveTab(tabs.value[newIndex].id)
 
-    // 포커스 이동
-    const button = event.target.parentElement?.querySelector(
-      `[data-tab-id="${tabs.value[newIndex].id}"]`,
-    )
-    button?.focus()
+    const currentTabs = tabs.value
+    const len = currentTabs.length
+    const currentIndex = currentTabs.findIndex((t) => t.id === props.tabId)
+
+    const step = event.key === 'ArrowLeft' || event.key === 'End' ? -1 : 1
+    let searchIndex = currentIndex
+
+    if (event.key === 'Home') searchIndex = -1
+    else if (event.key === 'End') searchIndex = len
+
+    let nextIndex = searchIndex
+
+    // 최대 탭 개수만큼 순회하며 활성화된 다음 탭 찾기
+    for (let i = 0; i < len; i++) {
+      nextIndex = (nextIndex + step + len) % len
+      if (!currentTabs[nextIndex]?.disabled) break
+    }
+
+    // 다음 탭이 유효하고 현재 탭과 다를 때만 탭 전환
+    if (nextIndex !== currentIndex && !currentTabs[nextIndex]?.disabled) {
+      const nextTabId = currentTabs[nextIndex].id
+      setActiveTab(nextTabId)
+
+      // 포커스 이동
+      const button = event.target.parentElement?.querySelector(`[data-tab-id="${nextTabId}"]`)
+      button?.focus()
+    }
   }
 
   // 버튼 클래스 계산

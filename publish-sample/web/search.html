@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
   <script src="../js/jquery-3.6.0.js"></script>
   <script src="../js/script.js"></script>
 </head>
+
 <body>
   <div class="sub-main-wrap">
+    <!-- header -->
     <div class="top-menu-wrap">
       <div class="top-menu-left">
         <h1 class="top-logo">
@@ -29,6 +32,7 @@
         </ul>
       </div>
     </div>
+    <!-- sidebar -->
     <div class="lnb-wrap active">
       <div class="left-menu">
         <nav class="nav">
@@ -119,247 +123,249 @@
       </div>
       <a class="btn-lnb-open" href="#" title="lnb버튼"></a>
     </div>
+    <!-- main contents-->
     <div class="sub-container-wrap full">
       <div class="container-wrap">
         <section class="contents-wrap pd20">
-            <div class="cont-wrap">
-              <div class="sub-title">
-                <h2 class="tit-ico">기준 정보관리</h2>
-                <div class="btn-area">
-                  <div class="btn-bg-icon">
-                    <a href="#"><span class="btn-srch"></span>조회</a>
-                  </div>
-                  <div class="btn-return">
-                    <a href="#"></a>
-                  </div>
+          <div class="cont-wrap">
+            <div class="sub-title">
+              <h2 class="tit-ico">기준 정보관리</h2>
+              <div class="btn-area">
+                <div class="btn-bg-icon">
+                  <a href="#"><span class="btn-srch"></span>조회</a>
+                </div>
+                <div class="btn-return">
+                  <a href="#"></a>
                 </div>
               </div>
-              <div class="inner-container">
-                <div class="wp100">
-                    <section class="inner-content-box col">
-                      <div class="search-wrap mg-b15">
-                        <div class="sch-box">
-                            <dl>
-                                <dt>UC Name</dt>
-                                <dd><input type="text"></dd>
-                            </dl>
-                            <dl>
-                                <dt>Item</dt>
-                                <dd><input type="text"></dd>
-                            </dl>
-                            <dl>
-                                <dt>Instance Number</dt>
-                                <dd><input type="text"></dd>
-                            </dl>
-                            <dl>
-                                <dt>Serial Number</dt>
-                                <dd><input type="text"></dd>
-                            </dl>
-                            <dl>
-                                <dt>Lot Number</dt>
-                                <dd><input type="text"></dd>
-                            </dl>
-                            <dl>
-                                <dt>UC Status</dt>
-                                <dd>
-                                    <select>
-                                        <option>All</option>
-                                    </select>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>MC Name</dt>
-                                <dd><input type="text"></dd>
-                            </dl>
-                            <dl>
-                                <dt>MC Status</dt>
-                                <dd>
-                                    <select>
-                                        <option>All</option>
-                                    </select>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>Search for</dt>
-                                <dd>
-                                    <select>
-                                        <option>All</option>
-                                    </select>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>MC Revision</dt>
-                                <dd><input type="text"></dd>
-                            </dl>
-                        </div>
-                      </div>
-                      <div class="result-cont-wrap">
-                        <div class="tit-wrap">
-                          <h3 class="tit">Alternate Subconfigurations</h3>
-                          <div class="btn-right-input">
-                            <select>
-                                <option>select A</option>
-                                <option>select B</option>
-                                <option>select C</option>
-                                <option>select D</option>
-                            </select>
-                            <!-- <a href="#" class="btn-bg-icon">실행</a> -->
-                            <div class="btn-bg-icon">
-                              <a href="#"><span class="btn-right-box"></span>실행</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="table-scroll">
-                          <table class="table-type01">
-                            <caption>테이블 타이틀</caption>
-                            <colgroup>
-                              <col class="wpauto">
-                              <col class="wpauto">
-                              <col class="wpauto">
-                              <col class="wpauto">
-                              <col class="wpauto">
-                              <col class="wpauto">
-                              <col class="wpauto">
-                              <col class="wpauto">
-                            </colgroup>
-                            <thead>
-                              <tr>
-                                <th class="pd10"><input type="checkbox"></th>
-                                <th>Name</th>
-                                <th>Revision</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                                <th>Priority</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                              <tr>
-                                <td class="pd10"><input type="checkbox"></td>
-                                <td>name</td>
-                                <td>text</td>
-                                <td>text</td>
-                                <td>status</td>
-                                <td>text</td>
-                                <td>YYYY/MM/DD</td>
-                                <td>YYYY/MM/DD</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div><!-- //tab-cont-wrap -->
-                      <div class="paging-box">
-                        <ul>
-                            <li><a href="#" title="처음" class="btn-first"></a></li>
-                            <li><a href="#" title="이전" class="btn-prev"></a></li>
-                            <li><a href="#" title="">1</a></li>
-                            <li><a href="#" title="">2</a></li>
-                            <li><a href="#" title="">3</a></li>
-                            <li><a href="#" title="">4</a></li>
-                            <li><a href="#" title="">5</a></li>
-                            <li><a href="#" title="다음" class="btn-next"></a></li>
-                            <li><a href="#" title="마지막" class="btn-last"></a></li>
-                          </ul>
-                      </div>
-                    </section>
+            </div>
+            <div class="inner-container">
+              <div class="wp100">
+                <section class="inner-content-box col">
+                  <div class="search-wrap mg-b15">
+                    <div class="sch-box">
+                      <dl>
+                        <dt>UC Name</dt>
+                        <dd><input type="text"></dd>
+                      </dl>
+                      <dl>
+                        <dt>Item</dt>
+                        <dd><input type="text"></dd>
+                      </dl>
+                      <dl>
+                        <dt>Instance Number</dt>
+                        <dd><input type="text"></dd>
+                      </dl>
+                      <dl>
+                        <dt>Serial Number</dt>
+                        <dd><input type="text"></dd>
+                      </dl>
+                      <dl>
+                        <dt>Lot Number</dt>
+                        <dd><input type="text"></dd>
+                      </dl>
+                      <dl>
+                        <dt>UC Status</dt>
+                        <dd>
+                          <select>
+                            <option>All</option>
+                          </select>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>MC Name</dt>
+                        <dd><input type="text"></dd>
+                      </dl>
+                      <dl>
+                        <dt>MC Status</dt>
+                        <dd>
+                          <select>
+                            <option>All</option>
+                          </select>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>Search for</dt>
+                        <dd>
+                          <select>
+                            <option>All</option>
+                          </select>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>MC Revision</dt>
+                        <dd><input type="text"></dd>
+                      </dl>
+                    </div>
                   </div>
-                </div>
-              </div><!-- //inner-container -->
-            </div><!-- //cont-wrap -->
-        </section><!-- //contents-wrap -->
-      </div>
-    </div><!-- //sub-container-wrap -->
+                  <div class="result-cont-wrap">
+                    <div class="tit-wrap">
+                      <h3 class="tit">Alternate Subconfigurations</h3>
+                      <div class="btn-right-input">
+                        <select>
+                          <option>select A</option>
+                          <option>select B</option>
+                          <option>select C</option>
+                          <option>select D</option>
+                        </select>
+                        <!-- <a href="#" class="btn-bg-icon">실행</a> -->
+                        <div class="btn-bg-icon">
+                          <a href="#"><span class="btn-right-box"></span>실행</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="table-scroll">
+                      <table class="table-type01">
+                        <caption>테이블 타이틀</caption>
+                        <colgroup>
+                          <col class="wpauto">
+                          <col class="wpauto">
+                          <col class="wpauto">
+                          <col class="wpauto">
+                          <col class="wpauto">
+                          <col class="wpauto">
+                          <col class="wpauto">
+                          <col class="wpauto">
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th class="pd10"><input type="checkbox"></th>
+                            <th>Name</th>
+                            <th>Revision</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                          <tr>
+                            <td class="pd10"><input type="checkbox"></td>
+                            <td>name</td>
+                            <td>text</td>
+                            <td>text</td>
+                            <td>status</td>
+                            <td>text</td>
+                            <td>YYYY/MM/DD</td>
+                            <td>YYYY/MM/DD</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div><!-- //tab-cont-wrap -->
+                  <div class="paging-box">
+                    <ul>
+                      <li><a href="#" title="처음" class="btn-first"></a></li>
+                      <li><a href="#" title="이전" class="btn-prev"></a></li>
+                      <li><a href="#" title="">1</a></li>
+                      <li><a href="#" title="">2</a></li>
+                      <li><a href="#" title="">3</a></li>
+                      <li><a href="#" title="">4</a></li>
+                      <li><a href="#" title="">5</a></li>
+                      <li><a href="#" title="다음" class="btn-next"></a></li>
+                      <li><a href="#" title="마지막" class="btn-last"></a></li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div><!-- //inner-container -->
+      </div><!-- //cont-wrap -->
+      </section><!-- //contents-wrap -->
+    </div>
+  </div><!-- //sub-container-wrap -->
   </div><!-- //sub-main-wrap -->
 </body>
+
 </html>
