@@ -11,7 +11,7 @@
 
   // UI 컴포넌트
   import { Button } from '@/components/ui/Button'
-  import { Input, Select, Checkbox, Radio, Textarea } from '@/components/ui/Input'
+  import { Input, DatePicker, Select, Checkbox, Radio, Textarea } from '@/components/ui/Input'
   import { Tabs, TabList, TabTrigger, TabContent } from '@/components/ui/Tabs'
   import { TreeMenu } from '@/components/ui/Tree'
   import { FormSection, FormTable } from '@/components/ui/Form'
@@ -293,7 +293,7 @@
                     <label for="date1">날짜</label>
                   </th>
                   <td class="border-form-border border-r px-4 py-3 text-sm">
-                    <Input id="date1" v-model="formData.date1" type="date" />
+                    <DatePicker id="date1" v-model="formData.date1" />
                   </td>
                   <th
                     class="bg-form-label-bg text-form-label-text border-form-border border-r px-4 py-3 text-left text-sm font-medium"
