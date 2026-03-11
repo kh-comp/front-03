@@ -4,7 +4,11 @@
  * 텍스트 입력 필드
  */
 import { cn } from '@/lib/utils'
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = defineProps({
   modelValue: {
@@ -31,6 +35,18 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  errorMessage: {
+    type: String,
+    default: '',
+  },
+  helperText: {
+    type: String,
+    default: '',
+  },
+  ariaDescribedby: {
+    type: String,
+    default: '',
+  },
   id: {
     type: String,
     default: '',
@@ -46,6 +62,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
+const attrs = useAttrs()
 
 // 입력값 변경 핸들러
 const handleInput = (event) => {
@@ -62,6 +79,19 @@ const handleBlur = (event) => {
   emit('blur', event)
 }
 
+const errorMessageId = computed(() =>
+  props.id && props.errorMessage ? `${props.id}-error` : '',
+)
+
+const helperTextId = computed(() =>
+  props.id && props.helperText ? `${props.id}-description` : '',
+)
+
+const describedBy = computed(() => {
+  const ids = [props.ariaDescribedby, errorMessageId.value || helperTextId.value].filter(Boolean)
+  return ids.length ? ids.join(' ') : undefined
+})
+
 // input 클래스 계산
 const inputClass = computed(() =>
   cn(
@@ -77,17 +107,36 @@ const inputClass = computed(() =>
 </script>
 
 <template>
-  <input
-    :id="id"
-    :name="name"
-    :type="type"
-    :value="modelValue"
-    :placeholder="placeholder"
-    :disabled="disabled"
-    :readonly="readonly"
-    :class="inputClass"
-    @input="handleInput"
-    @focus="handleFocus"
-    @blur="handleBlur"
-  />
+  <div class="w-full">
+    <input
+      v-bind="attrs"
+      :id="id"
+      :name="name"
+      :type="type"
+      :value="modelValue"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
+      :aria-invalid="error ? 'true' : 'false'"
+      :aria-describedby="describedBy"
+      :class="inputClass"
+      @input="handleInput"
+      @focus="handleFocus"
+      @blur="handleBlur"
+    />
+    <p
+      v-if="errorMessage"
+      :id="errorMessageId"
+      class="mt-2 text-sm text-destructive"
+    >
+      {{ errorMessage }}
+    </p>
+    <p
+      v-else-if="helperText"
+      :id="helperTextId"
+      class="mt-2 text-sm text-muted-foreground"
+    >
+      {{ helperText }}
+    </p>
+  </div>
 </template>

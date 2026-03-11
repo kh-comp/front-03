@@ -6,6 +6,7 @@
 import { cn } from '@/lib/utils'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { Input } from '@/components/ui/Input'
 import { LogIn } from 'lucide-vue-next'
 
 const router = useRouter()
@@ -72,7 +73,7 @@ const handleLogin = async () => {
           >
             아이디
           </label>
-          <input
+          <Input
             id="userId"
             v-model="userId"
             type="text"
@@ -96,7 +97,7 @@ const handleLogin = async () => {
           >
             비밀번호
           </label>
-          <input
+          <Input
             id="password"
             v-model="password"
             type="password"

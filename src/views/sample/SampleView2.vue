@@ -12,6 +12,7 @@ import PageHeader from '@/components/common/PageHeader.vue'
 import SearchSection from '@/components/common/SearchSection.vue'
 import DataTable from '@/components/ui/data-table/DataTable.vue'
 import { Button } from '@/components/ui/Button'
+import { Select } from '@/components/ui/Input'
 import { Search, RotateCcw } from 'lucide-vue-next'
 
 // 상수
@@ -159,6 +160,13 @@ const searchParams = reactive({
 
 // 로딩 상태
 const searchLoading = ref(false)
+const actionType = ref('')
+const actionOptions = [
+  { value: 'a', label: 'select A' },
+  { value: 'b', label: 'select B' },
+  { value: 'c', label: 'select C' },
+  { value: 'd', label: 'select D' },
+]
 
 // 검색 실행
 const handleSearch = async () => {
@@ -244,14 +252,12 @@ const handleReset = () => {
           </h3>
           <!-- 추가 액션 버튼 영역 -->
           <div class="flex items-center gap-2">
-            <select
-              class="h-9 rounded-md border border-slate-300 bg-white px-3 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-white"
-            >
-              <option>select A</option>
-              <option>select B</option>
-              <option>select C</option>
-              <option>select D</option>
-            </select>
+            <Select
+              v-model="actionType"
+              :options="actionOptions"
+              placeholder="액션 선택"
+              class="h-9 min-w-[140px] border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+            />
             <button
               class="inline-flex h-9 items-center gap-1.5 rounded-md border border-brand bg-white px-3 text-sm font-semibold text-brand hover:bg-brand-light dark:border-brand-accent dark:bg-slate-700 dark:text-brand-accent"
             >

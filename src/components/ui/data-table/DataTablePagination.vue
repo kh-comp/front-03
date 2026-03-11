@@ -5,6 +5,7 @@
  */
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
+import { Select } from '@/components/ui/Input'
 import {
   ChevronLeft,
   ChevronRight,
@@ -32,10 +33,10 @@ const props = defineProps({
 
 /**
  * 페이지 크기 변경
- * @param {Event} e - 이벤트 객체
+ * @param {string} value - 선택된 값
  */
-function handlePageSizeChange(e) {
-  const size = Number(e.target.value)
+function handlePageSizeChange(value) {
+  const size = Number(value)
   props.table.setPageSize(size)
 }
 
@@ -67,6 +68,13 @@ const endRow = computed(() => {
   const end = (currentPage.value + 1) * pageSize
   return end > totalRows.value ? totalRows.value : end
 })
+
+const pageSizeSelectOptions = computed(() =>
+  props.pageSizeOptions.map((size) => ({
+    value: String(size),
+    label: `${size}개씩 보기`,
+  })),
+)
 
 /**
  * 페이지 번호 배열 생성
@@ -114,15 +122,14 @@ const visiblePages = computed(() => {
     <div class="flex items-center gap-4">
       <!-- 페이지 크기 선택 -->
       <div class="flex items-center gap-2">
-        <select
-          :value="table.getState().pagination.pageSize"
-          class="h-size-sm rounded-md border border-pagination-border bg-background px-2 text-sm focus-ring"
+        <Select
+          :model-value="String(table.getState().pagination.pageSize)"
+          :options="pageSizeSelectOptions"
+          :allow-empty="false"
+          placeholder=""
+          class="h-size-sm min-w-[132px] border-pagination-border bg-background text-pagination-text"
           @change="handlePageSizeChange"
-        >
-          <option v-for="size in pageSizeOptions" :key="size" :value="size">
-            {{ size }}개씩 보기
-          </option>
-        </select>
+        />
       </div>
 
       <!-- 페이지 번호 버튼 -->

@@ -6,6 +6,7 @@
   import { cn } from '@/lib/utils'
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
+  import { Input } from '@/components/ui/Input'
   import { Home, HelpCircle, Bell, LogOut } from 'lucide-vue-next'
   import logoImage from '@/assets/images/common/logo__koreanair.svg'
 
@@ -54,8 +55,9 @@
 
       <!-- 검색창 -->
       <div class="relative">
-        <input
+        <Input
           v-model="searchQuery"
+          id="global-search"
           type="search"
           placeholder="검색어를 입력하세요"
           :class="

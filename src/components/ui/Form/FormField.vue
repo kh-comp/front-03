@@ -4,6 +4,7 @@
  * 라벨 + 입력요소를 포함한 재사용 가능한 폼 필드
  */
 import { cn } from '@/lib/utils'
+import { computed } from 'vue'
 import Input from '@/components/ui/Input/Input.vue'
 import Select from '@/components/ui/Input/Select.vue'
 
@@ -25,6 +26,14 @@ const emit = defineEmits(['update:modelValue'])
 const handleUpdate = (value) => {
   emit('update:modelValue', value)
 }
+
+const fieldId = computed(() => {
+  if (props.field?.key) {
+    return `field-${props.field.key}`
+  }
+
+  return ''
+})
 </script>
 
 <template>
@@ -32,6 +41,7 @@ const handleUpdate = (value) => {
     <!-- 라벨 -->
     <label
       v-if="field.label"
+      :for="fieldId"
       :class="
         cn(
           'mb-1 flex items-center text-sm font-bold',
@@ -49,6 +59,7 @@ const handleUpdate = (value) => {
     <!-- 텍스트 입력 -->
     <Input
       v-if="field.type === 'text'"
+      :id="fieldId"
       :model-value="modelValue"
       :placeholder="field.placeholder"
       :error="field.error"
@@ -58,6 +69,7 @@ const handleUpdate = (value) => {
     <!-- 셀렉트 -->
     <Select
       v-else-if="field.type === 'select'"
+      :id="fieldId"
       :model-value="modelValue"
       :options="field.options"
       :placeholder="field.placeholder || '전체'"
