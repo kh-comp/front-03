@@ -150,6 +150,161 @@ src/
 
 ---
 
+## 🎨 디자인 시스템 토큰
+
+모든 디자인 토큰은 `@src/assets/styles/style.css`에 정의되어 있다.
+
+### Border Radius (테두리 둥글기)
+
+| 토큰 | 값 | Tailwind 클래스 | 용도 |
+|------|-----|-----------------|------|
+| `--radius-sm` | 4px | `rounded-sm` | Badge, Tag, Checkbox |
+| `--radius-md` | 8px | `rounded-md` | Input, Select, Button |
+| `--radius-lg` | 10px | `rounded-lg` | Card, Panel |
+| `--radius-xl` | 12px | `rounded-xl` | Modal, Sheet |
+
+### Size (높이)
+
+| 토큰 | 값 | Tailwind 클래스 | 용도 |
+|------|-----|-----------------|------|
+| `--size-xs` | 24px | `h-size-xs`, `w-size-xs` | Badge, Tag, Chip |
+| `--size-sm` | 32px | `h-size-sm`, `w-size-sm` | Compact 버튼, Pagination |
+| `--size-md` | 40px | `h-size-md`, `w-size-md` | 기본 Input, Button, Select |
+| `--size-lg` | 44px | `h-size-lg`, `w-size-lg` | Large Button |
+| `--size-xl` | 48px | `h-size-xl`, `w-size-xl` | Extra Large |
+
+### Shadow (그림자)
+
+| 토큰 | 용도 |
+|------|------|
+| `--shadow-sm` | 미세한 경계선, 카드 |
+| `--shadow-md` | 기본 드롭다운 |
+| `--shadow-lg` | 팝오버, 툴팁 |
+| `--shadow-dropdown` | 드롭다운 메뉴 |
+| `--shadow-modal` | 모달 다이얼로그 |
+
+```html
+<!-- 사용 예시 -->
+<div class="shadow-dropdown">드롭다운 메뉴</div>
+<div class="shadow-modal">모달</div>
+```
+
+### Spacing (간격)
+
+| 토큰 | 값 | 용도 |
+|------|-----|------|
+| `--spacing-input-x` | 12px | 입력필드 가로 padding |
+| `--spacing-input-y` | 8px | 입력필드 세로 padding |
+| `--spacing-cell-x` | 16px | 테이블 셀 가로 padding |
+| `--spacing-cell-y` | 12px | 테이블 셀 세로 padding |
+| `--spacing-section` | 16px | 섹션 간격 |
+| `--spacing-card` | 16px | 카드 내부 padding |
+
+### Z-Index (레이어 계층)
+
+| 토큰 | 값 | 용도 |
+|------|-----|------|
+| `--z-dropdown` | 100 | 드롭다운 |
+| `--z-sticky` | 200 | 고정 요소 |
+| `--z-header` | 300 | 헤더 |
+| `--z-modal-backdrop` | 400 | 모달 배경 |
+| `--z-modal` | 500 | 모달 |
+| `--z-popover` | 600 | 팝오버 |
+| `--z-tooltip` | 700 | 툴팁 |
+| `--z-toast` | 800 | 토스트 알림 |
+
+### State (상태)
+
+| 토큰 | 용도 |
+|------|------|
+| `--state-error-color` | 에러 상태 텍스트 색상 |
+| `--state-error-bg` | 에러 상태 배경색 |
+| `--state-success-color` | 성공 상태 텍스트 색상 |
+| `--state-success-bg` | 성공 상태 배경색 |
+| `--state-disabled-opacity` | 비활성화 투명도 (0.5) |
+| `--state-disabled-cursor` | 비활성화 커서 (not-allowed) |
+
+### Transition (트랜지션)
+
+| 토큰 | 값 | 용도 |
+|------|-----|------|
+| `--duration-fast` | 100ms | 빠른 반응 (hover 등) |
+| `--duration-base` | 200ms | 기본 트랜지션 |
+| `--duration-slow` | 300ms | 느린 효과 (modal 등) |
+| `--ease-default` | cubic-bezier(0.4, 0, 0.2, 1) | 기본 이징 함수 |
+
+### Focus Ring (포커스 링)
+
+인터랙티브 요소에 공통으로 사용하는 포커스 스타일:
+
+```html
+<!-- 기본 포커스 링 -->
+<button class="focus-ring">버튼</button>
+
+<!-- 에러 상태 포커스 링 -->
+<input class="focus-ring focus-ring-error" />
+
+<!-- 성공 상태 포커스 링 -->
+<input class="focus-ring focus-ring-success" />
+```
+
+---
+
+## 📦 컴포넌트 작성 가이드
+
+### 표준 컴포넌트 구조
+
+```vue
+<script setup>
+import { cn } from '@/lib/utils'
+import { cva } from 'class-variance-authority'
+import { computed } from 'vue'
+
+// CVA 변형 정의
+const componentVariants = cva(
+  'base-classes rounded-md h-size-md px-3 text-sm',
+  {
+    variants: {
+      variant: {
+        default: 'bg-brand text-white',
+        outline: 'border border-brand text-brand',
+      },
+      size: {
+        default: 'h-size-md',
+        sm: 'h-size-sm',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  }
+)
+
+const props = defineProps({
+  variant: { type: String, default: 'default' },
+  size: { type: String, default: 'default' },
+  class: { type: String, default: '' },
+})
+</script>
+
+<template>
+  <div :class="cn(componentVariants({ variant, size }), props.class)">
+    <slot />
+  </div>
+</template>
+```
+
+### 필수 준수 사항
+
+1. **높이**: 폼 요소는 `h-size-md` (40px) 사용
+2. **Radius**: 폼 요소는 `rounded-md` (8px) 사용
+3. **Focus**: `focus-ring` 클래스 사용
+4. **cn()**: 모든 클래스 바인딩에 `cn()` 함수 사용
+5. **Props**: `class` prop을 항상 포함하여 외부에서 스타일 확장 가능
+
+---
+
 ## 🎯 Tailwind CSS 사용 규칙
 
 ### cn() 함수 사용 (필수)

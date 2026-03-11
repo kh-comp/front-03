@@ -39,7 +39,7 @@
   const containerClass = computed(() => {
     return cn(
       'flex h-full min-h-0 flex-col overflow-hidden rounded-[16px] border border-[color:var(--color-tree-border)] bg-[color:var(--color-tree-bg)] shadow-[0_6px_18px_rgba(20,73,102,0.06)]',
-      props.class
+      props.class,
     )
   })
 
@@ -52,7 +52,7 @@
     (ids) => {
       syncExpandedIds(ids)
     },
-    { immediate: true, deep: true }
+    { immediate: true, deep: true },
   )
 
   const isNodeExpanded = (nodeId) => {
@@ -105,18 +105,14 @@
       class="flex h-14 w-full shrink-0 items-center border-b border-[color-mix(in_oklab,var(--color-tree-header-bg)_70%,white)] bg-[linear-gradient(135deg,color-mix(in_oklab,var(--color-tree-header-bg)_84%,white)_0%,var(--color-tree-header-bg)_100%)] px-5"
     >
       <span
-        class="truncate text-[18px] font-semibold tracking-[-0.02em] text-[color:var(--color-tree-header-text)]"
+        class="truncate text-[18px] font-semibold tracking-[-0.02em] text-(--color-tree-header-text)"
       >
         {{ title }}
       </span>
     </div>
 
     <!-- 트리 노드 목록 -->
-    <ul
-      class="min-h-0 flex-1 overflow-y-auto px-3 py-3"
-      role="tree"
-      :aria-label="treeAriaLabel"
-    >
+    <ul class="min-h-0 flex-1 overflow-y-auto px-3 py-3" role="tree" :aria-label="treeAriaLabel">
       <TreeNode
         v-for="(node, index) in rootNodes"
         :key="node.id"

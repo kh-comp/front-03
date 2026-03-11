@@ -1,10 +1,31 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* ============================================
+     Border Radius - Tailwind 토큰 오버라이드
+     ============================================ */
+  --radius-sm: 0.25rem; /* 4px - 작은 요소 (Badge, Tag) */
+  --radius-md: 0.5rem; /* 8px - 폼 요소 (Input, Select, Button) */
+  --radius-lg: 0.625rem; /* 10px - 기본값 (Card, Panel) */
+  --radius-xl: 0.75rem; /* 12px - 큰 요소 (Modal, Sheet) */
+
+  /* ============================================
+     Size (Height) - 컴포넌트 높이 토큰
+     ============================================ */
+  --size-xs: 1.5rem; /* 24px - Badge, Tag, Chip */
+  --size-sm: 2rem; /* 32px - Compact 버튼, Small Input */
+  --size-md: 2.5rem; /* 40px - 기본 Input, Button, Select */
+  --size-lg: 2.75rem; /* 44px - Large Button */
+  --size-xl: 3rem; /* 48px - Extra Large */
+
+  /* ============================================
+     Shadow - 그림자 토큰
+     ============================================ */
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.03);
+  --shadow-md: 0 2px 4px oklch(0 0 0 / 0.05);
+  --shadow-lg: 0 4px 12px oklch(0 0 0 / 0.08);
+  --shadow-dropdown: 0 4px 16px oklch(0 0 0 / 0.12);
+  --shadow-modal: 0 16px 40px oklch(0 0 0 / 0.15);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -50,7 +71,83 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  /* ============================================
+     Border Radius
+     ============================================ */
+  --radius: 0.625rem; /* 10px - 기본값 */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.625rem; /* 10px */
+  --radius-xl: 0.75rem; /* 12px */
+
+  /* ============================================
+     Size (Height) - 컴포넌트 높이
+     ============================================ */
+  --size-xs: 1.5rem; /* 24px */
+  --size-sm: 2rem; /* 32px */
+  --size-md: 2.5rem; /* 40px */
+  --size-lg: 2.75rem; /* 44px */
+  --size-xl: 3rem; /* 48px */
+
+  /* ============================================
+     Shadow - 그림자
+     ============================================ */
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.03);
+  --shadow-md: 0 2px 4px oklch(0 0 0 / 0.05);
+  --shadow-lg: 0 4px 12px oklch(0 0 0 / 0.08);
+  --shadow-dropdown: 0 4px 16px oklch(0 0 0 / 0.12);
+  --shadow-modal: 0 16px 40px oklch(0 0 0 / 0.15);
+
+  /* ============================================
+     Spacing - 간격 토큰
+     ============================================ */
+  --spacing-input-x: 0.75rem; /* 12px - 입력필드 가로 padding */
+  --spacing-input-y: 0.5rem; /* 8px - 입력필드 세로 padding */
+  --spacing-cell-x: 1rem; /* 16px - 테이블 셀 가로 padding */
+  --spacing-cell-y: 0.75rem; /* 12px - 테이블 셀 세로 padding */
+  --spacing-section: 1rem; /* 16px - 섹션 간격 */
+  --spacing-card: 1rem; /* 16px - 카드 내부 padding */
+
+  /* Table 색상 매핑 */
+     Z-Index - 레이어 계층
+     ============================================ */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+
+  /* ============================================
+     Transition - 트랜지션
+     ============================================ */
+  --duration-fast: 100ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     Spacing - 간격
+     ============================================ */
+  --spacing-input-x: 0.75rem; /* 12px */
+  --spacing-input-y: 0.5rem; /* 8px */
+  --spacing-cell-x: 1rem; /* 16px */
+  --spacing-cell-y: 0.75rem; /* 12px */
+  --spacing-section: 1rem; /* 16px */
+  --spacing-card: 1rem; /* 16px */
+
+  /* ============================================
+     State - 상태
+     ============================================ */
+  --state-error-color: var(--destructive);
+  --state-error-bg: oklch(0.98 0.02 25);
+  --state-success-color: oklch(0.6 0.15 145);
+  --state-success-bg: oklch(0.95 0.03 145);
+  --state-disabled-opacity: 0.5;
+  --state-disabled-cursor: not-allowed;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -152,5 +249,35 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* ============================================
+   Utilities Layer - 커스텀 유틸리티
+   ============================================ */
+@layer utilities {
+  /* 포커스 링 - 인터랙티브 요소 공통 */
+  .focus-ring {
+    outline: none;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-color: var(--ring);
+    --tw-ring-offset-width: 2px;
+    --tw-ring-offset-color: var(--background);
+  }
+
+  .focus-ring:focus-visible {
+    outline: none;
+  }
+
+  /* 포커스 링 - 에러 상태 */
+  .focus-ring-error {
+    --tw-ring-color: var(--destructive);
+  }
+
+  /* 포커스 링 - 성공 상태 */
+  .focus-ring-success {
+    --tw-ring-color: oklch(0.6 0.15 145);
   }
 }

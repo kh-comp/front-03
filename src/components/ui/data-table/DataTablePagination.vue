@@ -116,7 +116,7 @@ const visiblePages = computed(() => {
       <div class="flex items-center gap-2">
         <select
           :value="table.getState().pagination.pageSize"
-          class="h-8 rounded-md border border-pagination-border bg-background px-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+          class="h-size-sm rounded-md border border-pagination-border bg-background px-2 text-sm focus-ring"
           @change="handlePageSizeChange"
         >
           <option v-for="size in pageSizeOptions" :key="size" :value="size">
@@ -133,10 +133,10 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanPreviousPage()"
           :class="
             cn(
-              'flex h-8 w-8 items-center justify-center rounded-md',
+              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
               'text-pagination-text hover:bg-pagination-hover-bg',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors',
+              'transition-colors focus-ring',
             )
           "
           @click="table.firstPage()"
@@ -150,10 +150,10 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanPreviousPage()"
           :class="
             cn(
-              'flex h-8 w-8 items-center justify-center rounded-md',
+              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
               'text-pagination-text hover:bg-pagination-hover-bg',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors',
+              'transition-colors focus-ring',
             )
           "
           @click="table.previousPage()"
@@ -167,8 +167,8 @@ const visiblePages = computed(() => {
             type="button"
             :class="
               cn(
-                'flex h-8 w-8 items-center justify-center rounded-md text-sm font-medium',
-                'transition-colors',
+                'flex h-size-sm w-size-sm items-center justify-center rounded-md text-sm font-medium',
+                'transition-colors focus-ring',
                 page === currentPage
                   ? 'bg-pagination-active-bg text-pagination-active-text'
                   : 'text-pagination-text hover:bg-pagination-hover-bg',
@@ -186,10 +186,10 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanNextPage()"
           :class="
             cn(
-              'flex h-8 w-8 items-center justify-center rounded-md',
+              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
               'text-pagination-text hover:bg-pagination-hover-bg',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors',
+              'transition-colors focus-ring',
             )
           "
           @click="table.nextPage()"
@@ -203,10 +203,10 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanNextPage()"
           :class="
             cn(
-              'flex h-8 w-8 items-center justify-center rounded-md',
+              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
               'text-pagination-text hover:bg-pagination-hover-bg',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors',
+              'transition-colors focus-ring',
             )
           "
           @click="table.lastPage()"

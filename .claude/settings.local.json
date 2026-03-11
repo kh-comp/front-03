@@ -12,7 +12,8 @@
       "mcp__plugin_playwright_playwright__browser_close",
       "Bash(git commit:*)",
       "Bash(netstat:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "mcp__plugin_playwright_playwright__browser_run_code"
     ]
   }
 }
