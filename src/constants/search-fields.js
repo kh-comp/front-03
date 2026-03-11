@@ -1,5 +1,6 @@
 /**
  * 엔진 UC 관리 검색 필드 정의
+ * @type {import('@/types/form').SearchField[]}
  */
 export const ENGINE_UC_SEARCH_FIELDS = [
   {

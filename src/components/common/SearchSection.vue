@@ -5,8 +5,7 @@
  */
 import { cn } from '@/lib/utils'
 import { computed, ref, watch } from 'vue'
-import Input from '@/components/ui/Input/Input.vue'
-import Select from '@/components/ui/Input/Select.vue'
+import FormField from '@/components/ui/Form/FormField.vue'
 import Button from '@/components/ui/Button/Button.vue'
 import { Search, RotateCcw } from 'lucide-vue-next'
 
@@ -102,33 +101,13 @@ const handleReset = () => {
       <div
         v-for="field in fields"
         :key="field.key"
-        class="search-field flex flex-col"
+        class="search-field"
         :style="field.colspan ? { gridColumn: `span ${field.colspan}` } : {}"
       >
-        <!-- 라벨 -->
-        <label class="mb-1 flex items-center text-sm font-bold text-slate-700 dark:text-slate-300">
-          <span
-            class="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500"
-          ></span>
-          {{ field.label }}
-        </label>
-
-        <!-- 텍스트 입력 -->
-        <Input
-          v-if="field.type === 'text'"
-          v-model="searchParams[field.key]"
-          :placeholder="field.placeholder"
-          class="h-10"
-          @update:model-value="(val) => handleFieldChange(field.key, val)"
-        />
-
-        <!-- 셀렉트 -->
-        <Select
-          v-else-if="field.type === 'select'"
-          v-model="searchParams[field.key]"
-          :options="field.options"
-          :placeholder="field.placeholder || '전체'"
-          class="h-10"
+        <!-- 폼 필드 -->
+        <FormField
+          :field="field"
+          :model-value="searchParams[field.key]"
           @update:model-value="(val) => handleFieldChange(field.key, val)"
         />
       </div>
