@@ -88,6 +88,7 @@ export const MENU_ITEMS = [
     icon: FlaskConical,
     children: [
       { id: 'sample-1', title: '샘플페이지-1', path: '/sample/sample-1' },
+      { id: 'sample-1-1', title: '샘플페이지-1-1', path: '/sample/sample-1-1' },
       { id: 'sample-2', title: '샘플페이지-2', path: '/sample/sample-2' },
       { id: 'sample-3', title: '샘플페이지-3', path: '/sample/sample-3' },
       { id: 'sample-component', title: 'component', path: '/sample/component' },
