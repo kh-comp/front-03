@@ -251,18 +251,20 @@ const handleReset = () => {
             Alternate Subconfigurations
           </h3>
           <!-- 추가 액션 버튼 영역 -->
-          <div class="flex items-center gap-2">
+          <div class="flex shrink-0 items-center gap-2">
             <Select
               v-model="actionType"
               :options="actionOptions"
               placeholder="액션 선택"
               class="h-9 min-w-[140px] border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-700 dark:text-white"
             />
-            <button
-              class="inline-flex h-9 items-center gap-1.5 rounded-md border border-brand bg-white px-3 text-sm font-semibold text-brand hover:bg-brand-light dark:border-brand-accent dark:bg-slate-700 dark:text-brand-accent"
+            <Button
+              variant="outline"
+              size="sm"
+              class="h-9 border-brand bg-white text-brand whitespace-nowrap dark:border-brand-accent dark:bg-slate-700 dark:text-brand-accent"
             >
               실행
-            </button>
+            </Button>
           </div>
         </div>
 
