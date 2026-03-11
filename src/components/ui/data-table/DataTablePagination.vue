@@ -106,24 +106,24 @@ const visiblePages = computed(() => {
   <div
     :class="
       cn(
-        'flex flex-col gap-3 border-t border-border bg-card px-4 py-4',
+        'flex flex-col gap-3 border-t border-slate-300 bg-card px-4 py-4',
         'md:flex-row md:items-center md:justify-between',
         props.class,
       )
     "
   >
     <div class="flex flex-wrap items-center gap-2">
-      <div class="inline-flex h-9 items-center rounded-full border border-border bg-muted/40 px-3 text-sm">
+      <div class="inline-flex h-9 items-center rounded-full border border-slate-300 bg-muted/40 px-3 text-sm">
         <span class="text-muted-foreground">총</span>
         <span class="ml-1.5 font-semibold text-foreground">{{ totalRows }}</span>
         <span class="ml-1 text-muted-foreground">건</span>
       </div>
-      <div class="inline-flex h-9 items-center rounded-full border border-border bg-background px-3 text-sm">
+      <div class="inline-flex h-9 items-center rounded-full border border-slate-300 bg-background px-3 text-sm">
         <span class="text-muted-foreground">선택</span>
         <span class="ml-1.5 font-semibold text-foreground">{{ selectedRows }}</span>
         <span class="ml-1 text-muted-foreground">건</span>
       </div>
-      <div class="inline-flex h-9 items-center rounded-full border border-border bg-background px-3 text-sm">
+      <div class="inline-flex h-9 items-center rounded-full border border-slate-300 bg-background px-3 text-sm">
         <span class="font-medium text-foreground">{{ startRow }}-{{ endRow }}</span>
         <span class="ml-1.5 text-muted-foreground">표시</span>
       </div>
@@ -154,7 +154,7 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanPreviousPage()"
           :class="
             cn(
-              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-background',
               'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
               'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
@@ -171,7 +171,7 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanPreviousPage()"
           :class="
             cn(
-              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-background',
               'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
               'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
@@ -191,7 +191,7 @@ const visiblePages = computed(() => {
                 'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
                 page === currentPage
                   ? 'border-foreground bg-foreground text-background'
-                  : 'border-transparent text-muted-foreground hover:border-border hover:bg-accent hover:text-foreground',
+                  : 'border-transparent text-muted-foreground hover:border-slate-300 hover:bg-accent hover:text-foreground',
               )
             "
             @click="table.setPageIndex(page)"
@@ -205,7 +205,7 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanNextPage()"
           :class="
             cn(
-              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-background',
               'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
               'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
@@ -221,7 +221,7 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanNextPage()"
           :class="
             cn(
-              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-background',
               'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
               'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',

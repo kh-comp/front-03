@@ -240,7 +240,7 @@ defineExpose({
   <div :class="cn('space-y-4', props.class)">
     <div
       v-if="hasToolbar"
-      class="flex flex-col gap-3 rounded-lg border border-border bg-card p-4 sm:flex-row sm:items-center sm:justify-between"
+      class="flex flex-col gap-3 rounded-lg border border-slate-300 bg-card p-4 sm:flex-row sm:items-center sm:justify-between"
     >
       <slot name="toolbar" :table="table" :selected-rows="getSelectedRows()" />
     </div>
@@ -248,7 +248,7 @@ defineExpose({
     <div
       :class="
         cn(
-          'overflow-hidden rounded-lg border border-border bg-card shadow-sm',
+          'overflow-hidden rounded-lg border border-slate-300 bg-card shadow-sm',
           enableStickyHeader && 'overflow-hidden',
         )
       "
@@ -273,7 +273,7 @@ defineExpose({
                   :class="
                     cn(
                       'h-12 w-12 px-3 text-center align-middle',
-                      'border-b border-border',
+                      'border-b border-slate-300',
                     )
                   "
                 >
@@ -296,7 +296,7 @@ defineExpose({
                   :class="
                     cn(
                       'h-12 px-4 text-left align-middle text-xs font-semibold tracking-[0.02em] text-foreground',
-                      'border-b border-border',
+                      'border-b border-slate-300',
                       header.column.getCanSort() && 'cursor-pointer select-none',
                     )
                   "
@@ -325,7 +325,7 @@ defineExpose({
                 <tr
                   :class="
                     cn(
-                      'border-b border-border/70',
+                      'border-b border-slate-300',
                       'transition-colors hover:bg-muted/35',
                       index === table.getRowModel().rows.length - 1 && 'border-b-0',
                       row.getIsSelected() && 'bg-muted/50',
