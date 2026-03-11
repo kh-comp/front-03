@@ -51,6 +51,11 @@ const router = createRouter({
           name: 'sample-component',
           component: () => import('@/views/sample/SampleComponentView.vue'),
         },
+        {
+          path: 'sample/data-table',
+          name: 'sample-data-table',
+          component: () => import('@/views/sample/SampleDataTableView.vue'),
+        },
         // TODO: 나머지 라우트는 해당 페이지 컴포넌트 생성 시 추가
       ],
     },

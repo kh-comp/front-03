@@ -43,13 +43,13 @@ function toggle() {
     :disabled="disabled"
     :class="
       cn(
-        'peer h-4 w-4 shrink-0 rounded-[3px]',
-        'border border-table-border',
+        'peer relative block h-4 w-4 shrink-0 rounded-[4px] leading-none',
+        'border border-border bg-background',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
         'disabled:cursor-not-allowed disabled:opacity-50',
-        'data-[state=checked]:bg-checkbox-checked-bg data-[state=checked]:border-checkbox-checked-bg',
-        'data-[state=indeterminate]:bg-checkbox-checked-bg data-[state=indeterminate]:border-checkbox-checked-bg',
-        'transition-colors',
+        'transition-colors hover:border-foreground/30',
+        'data-[state=checked]:border-foreground data-[state=checked]:bg-foreground',
+        'data-[state=indeterminate]:border-foreground data-[state=indeterminate]:bg-foreground',
         props.class,
       )
     "
@@ -60,16 +60,15 @@ function toggle() {
     <span
       :class="
         cn(
-          'flex items-center justify-center text-primary-foreground',
+          'absolute inset-0 flex items-center justify-center text-background transition-opacity',
           checked ? 'opacity-100' : 'opacity-0',
         )
       "
     >
       <Check v-if="checked === true" class="h-3 w-3" />
-      <!-- indeterminate 상태 (전체 선택 시 일부만 선택된 경우) -->
       <span
         v-else-if="checked === 'indeterminate'"
-        class="h-2 w-2 bg-primary-foreground rounded-sm"
+        class="h-0.5 w-2 rounded-full bg-background"
       />
     </span>
   </button>

@@ -91,6 +91,7 @@ export const MENU_ITEMS = [
       { id: 'sample-2', title: '샘플페이지-2', path: '/sample/sample-2' },
       { id: 'sample-3', title: '샘플페이지-3', path: '/sample/sample-3' },
       { id: 'sample-component', title: 'component', path: '/sample/component' },
+      { id: 'sample-data-table', title: 'data table', path: '/sample/data-table' },
     ],
   },
 ]

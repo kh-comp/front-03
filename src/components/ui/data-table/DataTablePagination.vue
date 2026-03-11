@@ -54,6 +54,7 @@ const pageCount = computed(() => props.table.getPageCount())
  * 전체 행 수
  */
 const totalRows = computed(() => props.table.getFilteredRowModel().rows.length)
+const selectedRows = computed(() => props.table.getFilteredSelectedRowModel().rows.length)
 
 /**
  * 현재 페이지의 시작 행 번호 (1-based)
@@ -105,45 +106,58 @@ const visiblePages = computed(() => {
   <div
     :class="
       cn(
-        'flex items-center justify-between px-2 py-3',
-        'bg-pagination-bg border-t border-pagination-border',
+        'flex flex-col gap-3 border-t border-border bg-card px-4 py-4',
+        'md:flex-row md:items-center md:justify-between',
         props.class,
       )
     "
   >
-    <!-- 왼쪽: 행 개수 정보 -->
-    <div class="flex items-center gap-2 text-sm text-pagination-text">
-      <span>총 {{ totalRows }}건</span>
-      <span class="text-muted-foreground">|</span>
-      <span>{{ startRow }}-{{ endRow }}</span>
+    <div class="flex flex-wrap items-center gap-2">
+      <div class="inline-flex h-9 items-center rounded-full border border-border bg-muted/40 px-3 text-sm">
+        <span class="text-muted-foreground">총</span>
+        <span class="ml-1.5 font-semibold text-foreground">{{ totalRows }}</span>
+        <span class="ml-1 text-muted-foreground">건</span>
+      </div>
+      <div class="inline-flex h-9 items-center rounded-full border border-border bg-background px-3 text-sm">
+        <span class="text-muted-foreground">선택</span>
+        <span class="ml-1.5 font-semibold text-foreground">{{ selectedRows }}</span>
+        <span class="ml-1 text-muted-foreground">건</span>
+      </div>
+      <div class="inline-flex h-9 items-center rounded-full border border-border bg-background px-3 text-sm">
+        <span class="font-medium text-foreground">{{ startRow }}-{{ endRow }}</span>
+        <span class="ml-1.5 text-muted-foreground">표시</span>
+      </div>
     </div>
 
-    <!-- 오른쪽: 페이지네이션 컨트롤 -->
-    <div class="flex items-center gap-4">
-      <!-- 페이지 크기 선택 -->
+    <div class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
       <div class="flex items-center gap-2">
+        <span class="text-sm text-muted-foreground">Rows</span>
         <Select
           :model-value="String(table.getState().pagination.pageSize)"
           :options="pageSizeSelectOptions"
           :allow-empty="false"
           placeholder=""
-          class="h-size-sm min-w-[132px] border-pagination-border bg-background text-pagination-text"
+          class="min-w-[132px]"
           @change="handlePageSizeChange"
         />
       </div>
 
-      <!-- 페이지 번호 버튼 -->
-      <div class="flex items-center gap-1">
-        <!-- 처음으로 -->
+      <div class="flex items-center gap-3">
+        <div class="text-sm text-muted-foreground">
+          Page <span class="font-medium text-foreground">{{ currentPage + 1 }}</span> of
+          <span class="font-medium text-foreground">{{ Math.max(pageCount, 1) }}</span>
+        </div>
+
+        <div class="flex items-center gap-1">
         <button
           type="button"
           :disabled="!table.getCanPreviousPage()"
           :class="
             cn(
-              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
-              'text-pagination-text hover:bg-pagination-hover-bg',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors focus-ring',
+              'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
             )
           "
           @click="table.firstPage()"
@@ -157,10 +171,10 @@ const visiblePages = computed(() => {
           :disabled="!table.getCanPreviousPage()"
           :class="
             cn(
-              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
-              'text-pagination-text hover:bg-pagination-hover-bg',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors focus-ring',
+              'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
             )
           "
           @click="table.previousPage()"
@@ -168,17 +182,16 @@ const visiblePages = computed(() => {
           <ChevronLeft class="h-4 w-4" />
         </button>
 
-        <!-- 페이지 번호 -->
         <template v-for="page in visiblePages" :key="page">
           <button
             type="button"
             :class="
               cn(
-                'flex h-size-sm w-size-sm items-center justify-center rounded-md text-sm font-medium',
-                'transition-colors focus-ring',
+                'inline-flex h-8 w-8 items-center justify-center rounded-md border text-sm font-medium',
+                'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
                 page === currentPage
-                  ? 'bg-pagination-active-bg text-pagination-active-text'
-                  : 'text-pagination-text hover:bg-pagination-hover-bg',
+                  ? 'border-foreground bg-foreground text-background'
+                  : 'border-transparent text-muted-foreground hover:border-border hover:bg-accent hover:text-foreground',
               )
             "
             @click="table.setPageIndex(page)"
@@ -187,16 +200,15 @@ const visiblePages = computed(() => {
           </button>
         </template>
 
-        <!-- 다음 -->
         <button
           type="button"
           :disabled="!table.getCanNextPage()"
           :class="
             cn(
-              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
-              'text-pagination-text hover:bg-pagination-hover-bg',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors focus-ring',
+              'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
             )
           "
           @click="table.nextPage()"
@@ -204,22 +216,22 @@ const visiblePages = computed(() => {
           <ChevronRight class="h-4 w-4" />
         </button>
 
-        <!-- 마지막으로 -->
         <button
           type="button"
           :disabled="!table.getCanNextPage()"
           :class="
             cn(
-              'flex h-size-sm w-size-sm items-center justify-center rounded-md',
-              'text-pagination-text hover:bg-pagination-hover-bg',
+              'inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background',
+              'text-muted-foreground hover:bg-accent hover:text-foreground',
               'disabled:cursor-not-allowed disabled:opacity-50',
-              'transition-colors focus-ring',
+              'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
             )
           "
           @click="table.lastPage()"
         >
           <ChevronsRight class="h-4 w-4" />
         </button>
+        </div>
       </div>
     </div>
   </div>

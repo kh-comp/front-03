@@ -12,7 +12,7 @@
  * const data = ref([...])
  * // 템플릿에서: <DataTable :columns="columns" :data="data" />
  */
-import { ref, computed, toRef, watch } from 'vue'
+import { ref, computed, useSlots } from 'vue'
 import {
   useVueTable,
   getCoreRowModel,
@@ -23,8 +23,9 @@ import {
 } from '@tanstack/vue-table'
 import { cn } from '@/lib/utils'
 import DataTableCheckbox from './DataTableCheckbox.vue'
-import DataTableHeader from './DataTableHeader.vue'
 import DataTablePagination from './DataTablePagination.vue'
+
+const slots = useSlots()
 
 const props = defineProps({
   /** 컬럼 정의 (ColumnDef[]) */
@@ -117,7 +118,6 @@ const pagination = ref({
   pageSize: props.pageSize,
 })
 
-// 데이터를 reactive로 변환
 const dataRef = computed(() => {
   return Array.isArray(props.data) ? props.data : props.data
 })
@@ -209,13 +209,16 @@ function toggleRow(row) {
   row.toggleSelected()
 }
 
-// 최대 높이 스타일 계산
 const maxHeightStyle = computed(() => {
   if (typeof props.maxHeight === 'number') {
     return `${props.maxHeight}px`
   }
   return props.maxHeight
 })
+
+const hasRows = computed(() => table.getRowModel().rows.length > 0)
+const columnSpan = computed(() => props.columns.length + (props.enableRowSelection ? 1 : 0))
+const hasToolbar = computed(() => Boolean(slots.toolbar))
 
 // 외부에서 접근 가능한 메서드 노출
 defineExpose({
@@ -234,41 +237,43 @@ defineExpose({
 </script>
 
 <template>
-  <div :class="cn('w-full', props.class)">
-    <!-- 테이블 컨테이너 -->
+  <div :class="cn('space-y-4', props.class)">
+    <div
+      v-if="hasToolbar"
+      class="flex flex-col gap-3 rounded-lg border border-border bg-card p-4 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <slot name="toolbar" :table="table" :selected-rows="getSelectedRows()" />
+    </div>
+
     <div
       :class="
         cn(
-          'rounded-md border border-table-border bg-table-bg',
+          'overflow-hidden rounded-lg border border-border bg-card shadow-sm',
           enableStickyHeader && 'overflow-hidden',
         )
       "
     >
-      <!-- 스크롤 영역 -->
       <div
         :class="cn(enableStickyHeader && 'overflow-auto')"
         :style="enableStickyHeader ? { maxHeight: maxHeightStyle } : undefined"
       >
         <table class="w-full border-collapse">
-          <!-- 테이블 헤더 -->
           <thead
             :class="
               cn(
-                'border-t-2 border-t-table-border-top',
-                'bg-table-header-bg',
-                enableStickyHeader && 'sticky top-0 z-10',
+                'bg-muted/50',
+                enableStickyHeader && 'sticky top-0 z-10 backdrop-blur supports-[backdrop-filter]:bg-muted/45',
               )
             "
           >
             <template v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
               <tr>
-                <!-- 체크박스 컬럼 (행 선택 활성화 시) -->
                 <th
                   v-if="enableRowSelection"
                   :class="
                     cn(
-                      'w-12 px-3 py-3 text-center align-middle',
-                      'border-b border-table-border',
+                      'h-12 w-12 px-3 text-center align-middle',
+                      'border-b border-border',
                     )
                   "
                 >
@@ -290,9 +295,8 @@ defineExpose({
                   :key="header.id"
                   :class="
                     cn(
-                      'px-4 py-3 text-left text-sm font-medium',
-                      'text-foreground',
-                      'border-b border-table-border',
+                      'h-12 px-4 text-left align-middle text-xs font-semibold tracking-[0.02em] text-foreground',
+                      'border-b border-border',
                       header.column.getCanSort() && 'cursor-pointer select-none',
                     )
                   "
@@ -312,9 +316,8 @@ defineExpose({
             </template>
           </thead>
 
-          <!-- 테이블 바디 -->
           <tbody>
-            <template v-if="table.getRowModel().rows.length > 0">
+            <template v-if="hasRows">
               <template
                 v-for="(row, index) in table.getRowModel().rows"
                 :key="row.id"
@@ -322,14 +325,14 @@ defineExpose({
                 <tr
                   :class="
                     cn(
-                      'border-b border-table-border',
-                      'hover:bg-table-row-hover',
+                      'border-b border-border/70',
+                      'transition-colors hover:bg-muted/35',
+                      index === table.getRowModel().rows.length - 1 && 'border-b-0',
+                      row.getIsSelected() && 'bg-muted/50',
                       'transition-colors',
-                      row.getIsSelected() && 'bg-table-row-selected',
                     )
                   "
                 >
-                  <!-- 체크박스 셀 -->
                   <td
                     v-if="enableRowSelection"
                     :class="cn('w-12 px-3 py-3 text-center align-middle')"
@@ -341,11 +344,10 @@ defineExpose({
                     />
                   </td>
 
-                  <!-- 데이터 셀 -->
                   <td
                     v-for="cell in row.getVisibleCells()"
                     :key="cell.id"
-                    :class="cn('px-4 py-3 text-sm text-foreground')"
+                    :class="cn('px-4 py-3 align-middle text-sm text-foreground')"
                   >
                     <FlexRender
                       :render="cell.column.columnDef.cell"
@@ -356,13 +358,19 @@ defineExpose({
               </template>
             </template>
 
-            <!-- 데이터 없음 표시 -->
             <tr v-else>
               <td
-                :colspan="columns.length + (enableRowSelection ? 1 : 0)"
-                :class="cn('px-4 py-8 text-center text-muted-foreground')"
+                :colspan="columnSpan"
+                :class="cn('px-6 py-14 text-center')"
               >
-                데이터가 없습니다.
+                <slot name="empty">
+                  <div class="mx-auto flex max-w-sm flex-col items-center gap-2">
+                    <p class="text-sm font-medium text-foreground">데이터가 없습니다.</p>
+                    <p class="text-sm text-muted-foreground">
+                      현재 조건에 맞는 결과가 없어 표시할 행이 없습니다.
+                    </p>
+                  </div>
+                </slot>
               </td>
             </tr>
           </tbody>
@@ -370,7 +378,6 @@ defineExpose({
       </div>
     </div>
 
-    <!-- 페이지네이션 -->
     <DataTablePagination
       v-if="enablePagination"
       :table="table"
