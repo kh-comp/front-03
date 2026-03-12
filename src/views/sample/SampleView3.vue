@@ -29,7 +29,7 @@
       key: 'ucName',
       label: 'UC Name',
       type: 'text',
-      placeholder: '라벨을 클릭해 포커스를 확인하세요---',
+      placeholder: '라벨을 클릭해 포커스를 확인하세요-',
       required: true,
     },
     {
